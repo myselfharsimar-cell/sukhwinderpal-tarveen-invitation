@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sukhwinderpal & Tarveen</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #f7eee8;
+    color: #4b342c;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background:
+        radial-gradient(circle at center, #8f6254 0%, #492d2c 45%, #21191a 100%);
+    overflow: hidden;
+}
+
+/* Curtain pieces */
+
+.curtain {
+    position: absolute;
+    top: 0;
+    width: 52%;
+    height: 100%;
+    z-index: 3;
+    transition: transform 2.2s cubic-bezier(.77,0,.18,1);
+}
+
+.curtain-left {
+    left: 0;
+    transform-origin: left center;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #5b292b 0px,
+            #8e4e4b 18px,
+            #542326 38px,
+            #a15e59 55px,
+            #59282a 78px
+        );
+    box-shadow: 12px 0 35px rgba(0,0,0,.45);
+}
+
+.curtain-right {
+    right: 0;
+    transform-origin: right center;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #59282a 0px,
+            #a15e59 18px,
+            #542326 38px,
+            #8e4e4b 55px,
+            #5b292b 78px
+        );
+    box-shadow: -12px 0 35px rgba(0,0,0,.45);
+}
+
+/* Curtain folds */
+
+.curtain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,220,200,.18),
+            transparent 18%,
+            rgba(255,220,200,.12) 35%,
+            transparent 52%,
+            rgba(255,220,200,.14) 70%,
+            transparent
+        );
+}
+
+/* Gold curtain trim */
+
+.curtain-left::before,
+.curtain-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(#e5bd7b,#fff0bf,#b88443,#f7d99b);
+}
+
+.curtain-left::before {
+    right: 0;
+}
+
+.curtain-right::before {
+    left: 0;
+}
+
+/* When opened */
+
+#opening.open .curtain-left {
+    transform: translateX(-92%);
+}
+
+#opening.open .curtain-right {
+    transform: translateX(92%);
+}
+
+/* =========================
+   TAP SCREEN
+========================= */
+
+.tap-content {
+    position: absolute;
+    z-index: 10;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+}
+
+.tap-box {
+    pointer-events: auto;
+    color: #fff8ee;
+    text-shadow: 0 2px 15px rgba(0,0,0,.6);
+}
+
+.small-title {
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.initials {
+    font-family: 'Great Vibes', cursive;
+    font-size: 58px;
+    margin-bottom: 10px;
+}
+
+.tap-text {
+    font-size: 19px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+#openButton {
+    border: 1px solid rgba(255,235,200,.8);
+    background: rgba(255,245,225,.12);
+    color: #fff8ee;
+    padding: 14px 32px;
+    border-radius: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: .3s;
+}
+
+#openButton:hover {
+    background: rgba(255,245,225,.25);
+    transform: scale(1.04);
+}
+
+/* =========================
+   INVITATION
+========================= */
+
+#invitation {
+    min-height: 100vh;
+    padding: 70px 22px;
+    text-align: center;
+    background:
+        radial-gradient(circle at top, #fffaf6, #f5e7df 70%);
+    opacity: 0;
+    transform: scale(.97);
+    transition: opacity 1.5s ease 1.2s,
+                transform 1.5s ease 1.2s;
+}
+
+#invitation.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.eyebrow {
+    letter-spacing: 5px;
+    font-size: 12px;
+    color: #98715e;
+}
+
+.couple-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(48px, 13vw, 82px);
+    line-height: 1;
+    color: #765044;
+    margin: 25px 0;
+}
+
+.ampersand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    color: #b38a62;
+}
+
+.divider {
+    width: 100px;
+    height: 1px;
+    background: #c9a985;
+    margin: 25px auto;
+}
+
+.message {
+    max-width: 600px;
+    margin: 0 auto 45px;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.details {
+    max-width: 650px;
+    margin: auto;
+    border: 1px solid #d8c1ad;
+    padding: 35px 20px;
+    background: rgba(255,255,255,.45);
+}
+
+.detail-title {
+    letter-spacing: 4px;
+    font-size: 13px;
+    color: #9b705b;
+}
+
+.date {
+    font-size: 32px;
+    margin: 12px 0;
+}
+
+.time {
+    font-size: 21px;
+    margin-bottom: 22px;
+}
+
+.venue {
+    font-size: 25px;
+}
+
+.location {
+    font-size: 17px;
+    margin-top: 5px;
+}
+
+.footer-message {
+    margin-top: 50px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 35px;
+    color: #765044;
+}
+
+.heart {
+    color: #b88a78;
+    font-size: 28px;
+    margin: 20px;
+}
+
+/* Mobile */
+
+@media(max-width:600px) {
+
+    .initials {
+        font-size: 50px;
+    }
+
+    .tap-text {
+        font-size: 17px;
+    }
+
+    #openButton {
+        padding: 13px 28px;
+    }
+
+    .couple-names {
+        font-size: 55px;
+    }
+
+    .date {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<section id="opening">
+
+    <div class="curtain curtain-left"></div>
+    <div class="curtain curtain-right"></div>
+
+    <div class="tap-content">
+
+        <div class="tap-box">
+
+            <div class="small-title">
+                A BEAUTIFUL BEGINNING AWAITS
+            </div>
+
+            <div class="initials">
+                S & T
+            </div>
+
+            <div class="tap-text">
+                TAP TO OPEN
+            </div>
+
+            <button id="openButton">
+                OPEN INVITATION ♡
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INVITATION
+========================= -->
+
+<section id="invitation">
+
+    <div class="eyebrow">
+        TOGETHER WITH OUR FAMILIES
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="message">
+        We invite you to join us as we celebrate
+        the beginning of a beautiful new chapter.
+    </div>
+
+    <div class="couple-names">
+        Sukhwinderpal<br>
+        <span class="ampersand">&</span><br>
+        Tarveen Kaur
+    </div>
+
+    <div class="heart">♡</div>
+
+    <div class="divider"></div>
+
+    <div class="details">
+
+        <div class="detail-title">
+            THE ENGAGEMENT
+        </div>
+
+        <div class="date">
+            19 September 2026
+        </div>
+
+        <div class="time">
+            7:00 PM onwards
+        </div>
+
+        <div class="venue">
+            The Grace by Symphony
+        </div>
+
+        <div class="location">
+            Delhi
+        </div>
+
+    </div>
+
+    <div class="footer-message">
+        We can't wait to celebrate with you!
+    </div>
+
+</section>
+
+
+<script>
+
+const opening = document.getElementById("opening");
+const button = document.getElementById("openButton");
+const invitation = document.getElementById("invitation");
+
+button.addEventListener("click", function() {
+
+    opening.classList.add("open");
+
+    setTimeout(function() {
+        invitation.classList.add("visible");
+    }, 300);
+
+    setTimeout(function() {
+        opening.style.display = "none";
+    }, 3500);
+
+});
+
+</script>
+
+</body>
+</html>
