@@ -23,9 +23,9 @@ rel="stylesheet">
 
 <style>
 
-/* =====================================================
+/* =========================
    BASIC
-===================================================== */
+========================= */
 
 *{
     box-sizing:border-box;
@@ -38,49 +38,36 @@ html{
 }
 
 body{
-
     background:#f4e7dd;
-
     color:#4a2528;
-
     font-family:'Cormorant Garamond',serif;
-
     overflow-x:hidden;
 }
 
 
-/* =====================================================
+/* =========================
    OPENING
-===================================================== */
+========================= */
 
 #opening{
-
     position:fixed;
     inset:0;
     z-index:9999;
-
     background:#26070d;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     overflow:hidden;
 }
 
-
 .curtain{
-
     position:absolute;
     top:0;
-
     width:51%;
     height:100%;
-
     z-index:3;
 
     background:
-
     repeating-linear-gradient(
         90deg,
         #350b13 0px,
@@ -91,260 +78,159 @@ body{
     );
 
     box-shadow:
-
-        inset -20px 0 35px
-        rgba(0,0,0,.45),
-
-        inset 15px 0 25px
-        rgba(255,255,255,.04);
+        inset -20px 0 35px rgba(0,0,0,.45),
+        inset 15px 0 25px rgba(255,255,255,.04);
 
     transition:
         transform 2.2s
         cubic-bezier(.77,0,.18,1);
 }
 
-
 .curtain.left{
     left:0;
 }
 
-
 .curtain.right{
-
     right:0;
-
     transform:scaleX(-1);
 }
 
-
 #opening.opened .curtain.left{
-
     transform:translateX(-100%);
 }
 
-
 #opening.opened .curtain.right{
-
     transform:
         translateX(100%)
         scaleX(-1);
 }
 
 
-/* =====================================================
+/* =========================
    CHANDELIER
-===================================================== */
+========================= */
 
 .chandelier{
-
     position:absolute;
-
     top:5%;
     left:50%;
-
-    transform:
-        translateX(-50%);
-
+    transform:translateX(-50%);
     z-index:2;
-
     font-size:38px;
-
     color:#e9c98c;
-
     text-shadow:
-        0 0 20px
-        rgba(255,220,150,.8);
+        0 0 20px rgba(255,220,150,.8);
 }
 
 
-/* =====================================================
+/* =========================
    OPENING CONTENT
-===================================================== */
+========================= */
 
 .openContent{
-
     position:relative;
-
     z-index:5;
-
     text-align:center;
-
     color:#f8ead7;
-
-    transition:
-        opacity 1s ease;
+    transition:opacity 1s ease;
 }
 
-
 #opening.opened .openContent{
-
     opacity:0;
 }
 
-
 .openTop{
-
     font-size:15px;
-
     letter-spacing:5px;
-
     margin-bottom:30px;
 }
 
-
-/* VERTICAL S & T */
-
 .initials{
-
-    font-family:
-        'Great Vibes',
-        cursive;
-
-    font-size:
-        clamp(68px,15vw,112px);
-
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(68px,15vw,112px);
     line-height:.72;
-
     color:#f8ead7;
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
 
     text-shadow:
-
-        0 2px 4px
-        rgba(0,0,0,.5),
-
-        0 0 18px
-        rgba(255,235,190,.25);
+        0 2px 4px rgba(0,0,0,.5),
+        0 0 18px rgba(255,235,190,.25);
 }
 
-
 .initials span{
-
     display:block;
 }
 
-
 .initials span:nth-child(2){
-
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
+    font-family:'Cormorant Garamond',serif;
     font-size:.38em;
-
     line-height:.7;
-
     margin:8px 0;
 }
 
-
 .openPhrase{
-
     margin-top:32px;
-
     font-size:14px;
-
     letter-spacing:4px;
 }
 
-
 .openButton{
-
     margin-top:32px;
-
-    border:
-        1px solid
-        rgba(248,234,215,.7);
-
-    background:
-        rgba(255,255,255,.04);
-
+    border:1px solid rgba(248,234,215,.7);
+    background:rgba(255,255,255,.04);
     color:#f8ead7;
-
-    padding:
-        13px 27px;
-
+    padding:13px 27px;
     border-radius:40px;
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
+    font-family:'Cormorant Garamond',serif;
     font-size:16px;
-
     letter-spacing:2px;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
-
 .openButton:hover{
-
     background:#f8ead7;
-
     color:#4a2528;
 }
 
 
-/* =====================================================
+/* =========================
    MAIN SECTIONS
-===================================================== */
+========================= */
 
 #mainInvitation{
-
     display:none;
 }
 
-
 .section{
-
-    padding:
-        90px 20px;
-
+    padding:90px 20px;
     text-align:center;
-
     position:relative;
-
     overflow:hidden;
 }
 
-
-/* Luxury subtle texture */
-
 .section::before{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     pointer-events:none;
-
     opacity:.45;
 
     background:
-
         radial-gradient(
             circle at 12% 18%,
-            rgba(143,76,84,.10)
-            0 2px,
+            rgba(143,76,84,.10) 0 2px,
             transparent 3px
         ),
 
         radial-gradient(
             circle at 88% 78%,
-            rgba(143,76,84,.08)
-            0 2px,
+            rgba(143,76,84,.08) 0 2px,
             transparent 3px
         ),
 
@@ -360,33 +246,25 @@ body{
         100% 100%;
 }
 
-
 .section > *{
-
     position:relative;
-
     z-index:1;
 }
 
 
-/* =====================================================
+/* =========================
    INTRO
-===================================================== */
+========================= */
 
 .intro{
-
     min-height:100vh;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
 
     background:
-
         radial-gradient(
             circle at 50% 35%,
             #fffaf5 0%,
@@ -395,81 +273,48 @@ body{
         );
 }
 
-
 .smallHeading{
-
     font-size:14px;
-
     letter-spacing:4px;
-
     color:#936d68;
-
     margin-bottom:18px;
 }
 
-
 .scriptHeading{
-
-    font-family:
-        'Great Vibes',
-        cursive;
-
-    font-size:
-        clamp(42px,8vw,68px);
-
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(42px,8vw,68px);
     color:#692832;
 }
 
-
 .coupleNames{
-
     margin-top:18px;
-
-    font-size:
-        clamp(38px,8vw,64px);
-
+    font-size:clamp(38px,8vw,64px);
     line-height:1.1;
-
     color:#4a2528;
 }
 
-
 .introText{
-
     max-width:600px;
-
     margin:25px auto;
-
     font-size:20px;
-
     line-height:1.7;
-
     color:#6e5553;
 }
 
-
-/* Elegant divider */
-
 .ornament{
-
     margin:22px 0;
-
     font-size:25px;
-
     color:#8e4d58;
-
     letter-spacing:8px;
 }
 
 
-/* =====================================================
+/* =========================
    SCRATCH SECTION
-===================================================== */
+========================= */
 
 .scratchSection{
-
     background:
-
         radial-gradient(
             circle at 20% 20%,
             #fffaf5,
@@ -478,40 +323,21 @@ body{
         );
 }
 
-
 .secretText{
-
     margin-top:10px;
-
     margin-bottom:35px;
-
     font-size:20px;
-
     color:#92726d;
-
     font-style:italic;
 }
 
-
-/*
-   IMPORTANT:
-   isolation keeps the scratch layers
-   completely separate.
-*/
-
 .scratchWrapper{
-
-    width:
-        min(90vw,430px);
-
+    width:min(90vw,430px);
     height:250px;
-
     margin:0 auto;
 
     position:relative;
-
     border-radius:18px;
-
     overflow:hidden;
 
     isolation:isolate;
@@ -519,27 +345,22 @@ body{
     background:#b88b62;
 
     box-shadow:
-
-        0 15px 40px
-        rgba(75,30,35,.18),
-
-        0 2px 8px
-        rgba(75,30,35,.10);
+        0 15px 40px rgba(75,30,35,.18),
+        0 2px 8px rgba(75,30,35,.10);
 }
 
 
-/* Hidden/revealed card */
+/* =========================
+   SECRET REVEAL
+========================= */
 
 .secretReveal{
-
     position:absolute;
-
     inset:0;
 
     z-index:1;
 
     background:
-
         linear-gradient(
             135deg,
             #fff9f2,
@@ -547,93 +368,74 @@ body{
         );
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
 
     padding:25px;
+
+    /*
+       IMPORTANT:
+       Keep hidden until the
+       scratch canvas is ready.
+    */
+    visibility:hidden;
 }
 
+.scratchWrapper.ready .secretReveal{
+    visibility:visible;
+}
 
 .secretRevealInner{
-
-    border:
-        1px solid #b88b82;
+    border:1px solid #b88b82;
 
     width:100%;
-
     height:100%;
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
 
     border-radius:12px;
 }
 
-
 .saveTitle{
-
     font-size:17px;
-
     letter-spacing:5px;
-
     color:#7b3540;
-
     margin-bottom:12px;
 }
 
-
 .saveDate{
-
     font-size:34px;
-
     color:#4a2528;
-
     font-weight:600;
 }
 
-
 .saveDay{
-
     font-size:21px;
-
     margin-top:5px;
-
     color:#6e5553;
 }
-
 
 .saveTime{
-
     font-size:19px;
-
     margin-top:4px;
-
     color:#6e5553;
 }
 
 
-/*
-   Scratch layer is ALWAYS above
-   the date.
-*/
+/* =========================
+   SCRATCH CANVAS
+========================= */
 
 #scratchCanvas{
-
     position:absolute;
-
     inset:0;
 
     width:100%;
-
     height:100%;
 
     cursor:crosshair;
@@ -644,18 +446,21 @@ body{
 
     display:block;
 
-    background:#b88b62;
+    /*
+       VERY IMPORTANT:
+       NO CSS BACKGROUND HERE.
+       The scratch surface is drawn
+       by JavaScript.
+    */
 }
 
 
-/* =====================================================
+/* =========================
    COUNTDOWN
-===================================================== */
+========================= */
 
 .heartbeat{
-
     background:
-
         radial-gradient(
             circle at center,
             #681f2b 0%,
@@ -666,28 +471,19 @@ body{
     color:#f8ead7;
 }
 
-
 .heartbeat .smallHeading{
-
     color:#d9b8a5;
 }
 
-
 .heartbeatTitle{
+    font-family:'Great Vibes',cursive;
 
-    font-family:
-        'Great Vibes',
-        cursive;
-
-    font-size:
-        clamp(45px,9vw,70px);
+    font-size:clamp(45px,9vw,70px);
 
     color:#f8ead7;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     flex-wrap:wrap;
@@ -695,11 +491,7 @@ body{
     gap:8px;
 }
 
-
-/* BUMPING HEART */
-
 .beatingHeart{
-
     display:inline-block;
 
     font-family:Arial,sans-serif;
@@ -716,10 +508,8 @@ body{
     transform-origin:center;
 
     text-shadow:
-        0 0 15px
-        rgba(255,180,190,.35);
+        0 0 15px rgba(255,180,190,.35);
 }
-
 
 @keyframes heartbeat{
 
@@ -748,54 +538,39 @@ body{
     }
 }
 
-
 .countdown{
-
     display:flex;
-
     justify-content:center;
 
-    gap:
-        clamp(12px,4vw,35px);
+    gap:clamp(12px,4vw,35px);
 
     margin-top:35px;
 
     flex-wrap:wrap;
 }
 
-
 .timeBox{
-
     min-width:70px;
 }
 
-
 .timeNumber{
-
     font-size:42px;
-
     font-weight:600;
 }
 
-
 .timeLabel{
-
     font-size:12px;
-
     letter-spacing:3px;
-
     color:#d8b8ab;
 }
 
 
-/* =====================================================
+/* =========================
    RING CEREMONY
-===================================================== */
+========================= */
 
 .ringSection{
-
     background:
-
         radial-gradient(
             circle at 80% 30%,
             #fffdf9,
@@ -804,20 +579,13 @@ body{
         );
 }
 
-
 .ringIcon{
-
     font-size:55px;
-
     margin-bottom:15px;
 }
 
-
 .ringTitle{
-
-    font-family:
-        'Great Vibes',
-        cursive;
+    font-family:'Great Vibes',cursive;
 
     font-size:
         clamp(50px,10vw,78px);
@@ -826,14 +594,12 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    VENUE
-===================================================== */
+========================= */
 
 .venueSection{
-
     background:
-
         radial-gradient(
             circle at 20% 20%,
             #fffaf5,
@@ -842,12 +608,8 @@ body{
         );
 }
 
-
 .venueTitle{
-
-    font-family:
-        'Great Vibes',
-        cursive;
+    font-family:'Great Vibes',cursive;
 
     font-size:
         clamp(42px,8vw,58px);
@@ -857,38 +619,26 @@ body{
     margin-bottom:25px;
 }
 
-
 .venueName{
-
     font-size:27px;
-
     font-weight:600;
-
     margin-bottom:15px;
 }
 
-
 .address{
-
     font-size:19px;
-
     line-height:1.6;
-
     color:#705552;
 }
 
-
 .locationButton{
-
     display:inline-block;
 
     margin-top:30px;
 
-    padding:
-        13px 27px;
+    padding:13px 27px;
 
-    border:
-        1px solid #8c555c;
+    border:1px solid #8c555c;
 
     border-radius:40px;
 
@@ -903,23 +653,18 @@ body{
     transition:.3s;
 }
 
-
 .locationButton:hover{
-
     background:#6c2834;
-
     color:white;
 }
 
 
-/* =====================================================
+/* =========================
    MOMENTS
-===================================================== */
+========================= */
 
 .momentsSection{
-
     background:
-
         radial-gradient(
             circle at 50% 20%,
             #fffdf9,
@@ -928,12 +673,8 @@ body{
         );
 }
 
-
 .momentsTitle{
-
-    font-family:
-        'Great Vibes',
-        cursive;
+    font-family:'Great Vibes',cursive;
 
     font-size:
         clamp(50px,9vw,72px);
@@ -941,9 +682,7 @@ body{
     color:#6c2834;
 }
 
-
 .photoGrid{
-
     max-width:1000px;
 
     margin:
@@ -957,9 +696,7 @@ body{
     gap:20px;
 }
 
-
 .photoCard{
-
     height:420px;
 
     border-radius:15px;
@@ -969,19 +706,12 @@ body{
     background:#ead9cf;
 
     box-shadow:
-
-        0 10px 25px
-        rgba(75,30,35,.15),
-
-        0 2px 6px
-        rgba(75,30,35,.08);
+        0 10px 25px rgba(75,30,35,.15),
+        0 2px 6px rgba(75,30,35,.08);
 }
 
-
 .photoCard img{
-
     width:100%;
-
     height:100%;
 
     display:block;
@@ -992,19 +722,16 @@ body{
         transform .5s ease;
 }
 
-
 .photoCard:hover img{
-
     transform:scale(1.04);
 }
 
 
-/* =====================================================
+/* =========================
    CLOSING
-===================================================== */
+========================= */
 
 .closing{
-
     min-height:75vh;
 
     background:#26070d;
@@ -1022,9 +749,7 @@ body{
     overflow:hidden;
 }
 
-
 .closingCurtain{
-
     position:absolute;
 
     top:0;
@@ -1034,7 +759,6 @@ body{
     height:100%;
 
     background:
-
         repeating-linear-gradient(
             90deg,
             #350b13 0px,
@@ -1047,24 +771,16 @@ body{
     opacity:.8;
 }
 
-
 .closingCurtain.left{
-
     left:0;
 }
 
-
 .closingCurtain.right{
-
     right:0;
 }
 
-
 .closingTitle{
-
-    font-family:
-        'Great Vibes',
-        cursive;
+    font-family:'Great Vibes',cursive;
 
     font-size:
         clamp(55px,10vw,85px);
@@ -1074,9 +790,7 @@ body{
     z-index:2;
 }
 
-
 .closingNames{
-
     font-size:23px;
 
     letter-spacing:3px;
@@ -1089,12 +803,11 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    ROSE PETALS
-===================================================== */
+========================= */
 
 #flowerRain{
-
     position:fixed;
 
     inset:0;
@@ -1106,15 +819,12 @@ body{
     overflow:hidden;
 }
 
-
 .petal{
-
     position:absolute;
 
     top:-30px;
 
     background:
-
         radial-gradient(
             ellipse at 35% 30%,
             #eaa0a7,
@@ -1131,11 +841,9 @@ body{
         fall linear forwards;
 }
 
-
 @keyframes fall{
 
     0%{
-
         transform:
             translate3d(
                 0,
@@ -1145,9 +853,7 @@ body{
             rotate(0deg);
     }
 
-
     50%{
-
         transform:
             translate3d(
                 var(--sway),
@@ -1157,9 +863,7 @@ body{
             rotate(180deg);
     }
 
-
     100%{
-
         transform:
             translate3d(
                 calc(var(--sway) * -1),
@@ -1168,119 +872,85 @@ body{
             )
             rotate(360deg);
     }
-
 }
 
 
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
 @media(max-width:700px){
 
     .section{
-
         padding:
             75px 18px;
     }
 
-
     .photoGrid{
-
         grid-template-columns:1fr;
-
         max-width:430px;
     }
 
-
     .photoCard{
-
         height:430px;
     }
 
-
     .countdown{
-
         gap:18px;
     }
 
-
     .timeBox{
-
         min-width:60px;
     }
 
-
     .timeNumber{
-
         font-size:34px;
     }
 
-
     .venueName{
-
         font-size:24px;
     }
 
-
     .address{
-
         font-size:18px;
     }
-
 
     .secretText{
-
         font-size:18px;
     }
 
-
     .saveDate{
-
         font-size:29px;
     }
-
 }
 
 
-/* =====================================================
+/* =========================
    VERY SMALL PHONES
-===================================================== */
+========================= */
 
 @media(max-width:380px){
 
     .initials{
-
         font-size:65px;
     }
 
-
     .openTop{
-
         font-size:12px;
-
         letter-spacing:3px;
     }
 
-
     .openPhrase{
-
         font-size:12px;
-
         letter-spacing:2px;
     }
 
-
     .timeNumber{
-
         font-size:29px;
     }
 
-
     .timeLabel{
-
         font-size:10px;
-
         letter-spacing:2px;
     }
 
@@ -1294,32 +964,25 @@ body{
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      OPENING
-===================================================== -->
+========================= -->
 
 <section id="opening">
-
 
     <div class="curtain left"></div>
 
     <div class="curtain right"></div>
 
-
     <div class="chandelier">
         ✦
     </div>
 
-
     <div class="openContent">
 
-
         <div class="openTop">
-
             A BEAUTIFUL BEGINNING AWAITS
-
         </div>
-
 
         <div class="initials">
 
@@ -1331,13 +994,9 @@ body{
 
         </div>
 
-
         <div class="openPhrase">
-
             TWO HEARTS • ONE JOURNEY
-
         </div>
-
 
         <button
             class="openButton"
@@ -1347,16 +1006,14 @@ body{
 
         </button>
 
-
     </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================
      MAIN INVITATION
-===================================================== -->
+========================= -->
 
 <main id="mainInvitation">
 
@@ -1365,20 +1022,13 @@ body{
 
 <section class="section intro">
 
-
     <div class="smallHeading">
-
         TOGETHER WITH OUR FAMILIES
-
     </div>
-
 
     <div class="scriptHeading">
-
         We invite you
-
     </div>
-
 
     <div class="introText">
 
@@ -1387,7 +1037,6 @@ body{
         beginning with us.
 
     </div>
-
 
     <div class="coupleNames">
 
@@ -1410,140 +1059,98 @@ body{
 
     </div>
 
-
     <div class="ornament">
-
         ❧ &nbsp; ♡ &nbsp; ❧
-
     </div>
-
 
     <div class="introText">
-
         Two hearts, one beautiful beginning ♡
-
     </div>
 
-
 </section>
-
 
 
 <!-- SCRATCH -->
 
 <section class="section scratchSection">
 
-
     <div class="secretText">
-
         A little secret is waiting underneath....
-
     </div>
 
 
-    <div class="scratchWrapper">
+    <div class="scratchWrapper"
+         id="scratchWrapper">
 
 
         <div class="secretReveal">
 
-
             <div class="secretRevealInner">
 
-
                 <div class="saveTitle">
-
                     SAVE THE DATE
-
                 </div>
-
 
                 <div class="saveDate">
-
                     19 September 2026
-
                 </div>
-
 
                 <div class="saveDay">
-
                     Saturday
-
                 </div>
-
 
                 <div class="saveTime">
-
                     7:00 PM
-
                 </div>
 
-
             </div>
-
 
         </div>
 
 
-        <canvas
-            id="scratchCanvas">
-        </canvas>
+        <canvas id="scratchCanvas"></canvas>
 
 
     </div>
 
-
 </section>
-
 
 
 <!-- COUNTDOWN -->
 
 <section class="section heartbeat">
 
-
     <div class="smallHeading">
-
         COUNTING EVERY HEARTBEAT ♡
-
     </div>
-
 
     <div class="heartbeatTitle">
 
-
         <span class="beatingHeart">
             ♡
         </span>
-
 
         Until we celebrate
 
-
         <span class="beatingHeart">
             ♡
         </span>
-
 
     </div>
 
 
     <div class="countdown">
 
-
         <div class="timeBox">
 
             <div
                 class="timeNumber"
                 id="days">
-
                 00
-
             </div>
 
             <div class="timeLabel">
-
                 DAYS
-
             </div>
 
         </div>
@@ -1554,15 +1161,11 @@ body{
             <div
                 class="timeNumber"
                 id="hours">
-
                 00
-
             </div>
 
             <div class="timeLabel">
-
                 HOURS
-
             </div>
 
         </div>
@@ -1573,15 +1176,11 @@ body{
             <div
                 class="timeNumber"
                 id="minutes">
-
                 00
-
             </div>
 
             <div class="timeLabel">
-
                 MINUTES
-
             </div>
 
         </div>
@@ -1592,82 +1191,54 @@ body{
             <div
                 class="timeNumber"
                 id="seconds">
-
                 00
-
             </div>
 
             <div class="timeLabel">
-
                 SECONDS
-
             </div>
 
         </div>
 
-
     </div>
 
-
 </section>
-
 
 
 <!-- RING CEREMONY -->
 
 <section class="section ringSection">
 
-
     <div class="smallHeading">
-
         A PROMISE TO FOREVER
-
     </div>
-
 
     <div class="ringIcon">
-
         💍
-
     </div>
-
 
     <div class="ringTitle">
-
         Ring Ceremony
-
     </div>
 
-
 </section>
-
 
 
 <!-- VENUE -->
 
 <section class="section venueSection">
 
-
     <div class="smallHeading">
-
         THE CELEBRATION
-
     </div>
-
 
     <div class="venueTitle">
-
         The Venue
-
     </div>
-
 
     <div class="venueName">
-
         The Grace BY: Symphony Banquet
-
     </div>
-
 
     <div class="address">
 
@@ -1689,38 +1260,27 @@ body{
 
 
     <a
-
         class="locationButton"
-
         href="https://www.google.com/maps/search/?api=1&query=The+Grace+BY+Symphony+Banquet+B-10+GT+Karnal+Road+New+Delhi"
-
         target="_blank">
 
         VIEW LOCATION ♡
 
     </a>
 
-
 </section>
-
 
 
 <!-- MOMENTS -->
 
 <section class="section momentsSection">
 
-
     <div class="smallHeading">
-
         A FEW BEAUTIFUL MOMENTS
-
     </div>
 
-
     <div class="momentsTitle">
-
         Our Moments
-
     </div>
 
 
@@ -1730,12 +1290,8 @@ body{
         <div class="photoCard">
 
             <img
-
                 src="couple1.jpeg.jpeg"
-
-                alt="A beautiful moment"
-
-                loading="lazy">
+                alt="A beautiful moment">
 
         </div>
 
@@ -1743,12 +1299,8 @@ body{
         <div class="photoCard">
 
             <img
-
                 src="couple2.jpeg.jpeg"
-
-                alt="A beautiful moment"
-
-                loading="lazy">
+                alt="A beautiful moment">
 
         </div>
 
@@ -1756,27 +1308,20 @@ body{
         <div class="photoCard">
 
             <img
-
                 src="couple3.jpeg.jpeg"
-
-                alt="A beautiful moment"
-
-                loading="lazy">
+                alt="A beautiful moment">
 
         </div>
 
 
     </div>
 
-
 </section>
-
 
 
 <!-- CLOSING -->
 
 <section class="section closing">
-
 
     <div class="closingCurtain left"></div>
 
@@ -1784,18 +1329,12 @@ body{
 
 
     <div class="closingTitle">
-
         See you soon ♡
-
     </div>
-
 
     <div class="closingNames">
-
         Sukhwinderpal &amp; Tarveen
-
     </div>
-
 
 </section>
 
@@ -1803,37 +1342,61 @@ body{
 </main>
 
 
-
 <!-- PETALS -->
 
 <div id="flowerRain"></div>
 
 
-
 <script>
 
-
-/* =====================================================
-   OPEN INVITATION
-===================================================== */
+/* =========================
+   ELEMENTS
+========================= */
 
 const opening =
     document.getElementById(
         "opening"
     );
 
-
 const openButton =
     document.getElementById(
         "openInvitation"
     );
-
 
 const mainInvitation =
     document.getElementById(
         "mainInvitation"
     );
 
+const canvas =
+    document.getElementById(
+        "scratchCanvas"
+    );
+
+const wrapper =
+    document.getElementById(
+        "scratchWrapper"
+    );
+
+const ctx =
+    canvas.getContext(
+        "2d",
+        {
+            willReadFrequently:true
+        }
+    );
+
+
+let scratching = false;
+
+let revealed = false;
+
+let strokes = 0;
+
+
+/* =========================
+   OPEN INVITATION
+========================= */
 
 openButton.addEventListener(
     "click",
@@ -1853,10 +1416,29 @@ openButton.addEventListener(
                 mainInvitation.style.display =
                     "block";
 
+
                 window.scrollTo(
                     0,
                     0
                 );
+
+
+                /*
+                   IMPORTANT FIX:
+                   The scratch card is
+                   initialized ONLY AFTER
+                   the main invitation becomes
+                   visible.
+                */
+
+                requestAnimationFrame(
+                    function(){
+
+                        resizeScratchCanvas();
+
+                    }
+                );
+
 
             },
             2200
@@ -1866,49 +1448,30 @@ openButton.addEventListener(
 );
 
 
-
-/* =====================================================
-   SCRATCH CARD
-===================================================== */
-
-const canvas =
-    document.getElementById(
-        "scratchCanvas"
-    );
-
-
-const wrapper =
-    document.querySelector(
-        ".scratchWrapper"
-    );
-
-
-const ctx =
-    canvas.getContext(
-        "2d",
-        {
-            willReadFrequently:true
-        }
-    );
-
-
-let scratching = false;
-
-let revealed = false;
-
-let strokes = 0;
-
-
-
-/* =====================================================
-   DRAW SCRATCH CARD
-===================================================== */
+/* =========================
+   RESIZE SCRATCH CANVAS
+========================= */
 
 function resizeScratchCanvas(){
+
+    if(
+        mainInvitation.style.display !==
+        "block"
+    ){
+        return;
+    }
 
 
     const rect =
         wrapper.getBoundingClientRect();
+
+
+    if(
+        rect.width === 0 ||
+        rect.height === 0
+    ){
+        return;
+    }
 
 
     const dpr =
@@ -1923,7 +1486,6 @@ function resizeScratchCanvas(){
             rect.width * dpr
         );
 
-
     canvas.height =
         Math.round(
             rect.height * dpr
@@ -1932,7 +1494,6 @@ function resizeScratchCanvas(){
 
     canvas.style.width =
         rect.width + "px";
-
 
     canvas.style.height =
         rect.height + "px";
@@ -1950,16 +1511,25 @@ function resizeScratchCanvas(){
 
     drawScratchSurface();
 
+
+    /*
+       Show the hidden date
+       ONLY after the scratch
+       surface has been painted.
+    */
+
+    wrapper.classList.add(
+        "ready"
+    );
+
 }
 
 
-
-/* =====================================================
-   GOLD SCRATCH SURFACE
-===================================================== */
+/* =========================
+   DRAW SCRATCH SURFACE
+========================= */
 
 function drawScratchSurface(){
-
 
     const rect =
         wrapper.getBoundingClientRect();
@@ -1983,12 +1553,10 @@ function drawScratchSurface(){
         "#a87552"
     );
 
-
     gradient.addColorStop(
         .5,
         "#e2c19a"
     );
-
 
     gradient.addColorStop(
         1,
@@ -2024,12 +1592,10 @@ function drawScratchSurface(){
         "rgba(255,255,255,.05)"
     );
 
-
     shine.addColorStop(
         .5,
         "rgba(255,255,255,.25)"
     );
-
 
     shine.addColorStop(
         1,
@@ -2049,19 +1615,16 @@ function drawScratchSurface(){
     );
 
 
-    /* instruction */
+    /* scratch instruction */
 
     ctx.fillStyle =
         "rgba(255,255,255,.82)";
 
-
     ctx.font =
         "600 18px Cormorant Garamond";
 
-
     ctx.textAlign =
         "center";
-
 
     ctx.textBaseline =
         "middle";
@@ -2076,10 +1639,9 @@ function drawScratchSurface(){
 }
 
 
-
-/* =====================================================
+/* =========================
    POINTER POSITION
-===================================================== */
+========================= */
 
 function getPointerPosition(
     event
@@ -2104,10 +1666,9 @@ function getPointerPosition(
 }
 
 
-
-/* =====================================================
+/* =========================
    ERASE
-===================================================== */
+========================= */
 
 function eraseAt(
     x,
@@ -2115,9 +1676,7 @@ function eraseAt(
 ){
 
     if(revealed){
-
         return;
-
     }
 
 
@@ -2154,24 +1713,19 @@ function eraseAt(
 }
 
 
-
-/* =====================================================
-   CHECK SCRATCH PROGRESS
-===================================================== */
+/* =========================
+   CHECK PROGRESS
+========================= */
 
 function checkScratchProgress(){
 
-
     if(revealed){
-
         return;
-
     }
 
 
     const width =
         canvas.width;
-
 
     const height =
         canvas.height;
@@ -2243,23 +1797,24 @@ function checkScratchProgress(){
 }
 
 
-
-/* =====================================================
-   REVEAL
-===================================================== */
+/* =========================
+   REVEAL SCRATCH
+========================= */
 
 function revealScratch(){
 
-
     if(revealed){
-
         return;
-
     }
 
 
     revealed = true;
 
+
+    /*
+       Remove every pixel
+       from the scratch canvas.
+    */
 
     ctx.setTransform(
         1,
@@ -2279,31 +1834,38 @@ function revealScratch(){
     );
 
 
+    /*
+       Make absolutely sure
+       the canvas is transparent.
+    */
+
+    canvas.style.background =
+        "transparent";
+
+
     canvas.style.pointerEvents =
         "none";
 
 
-    /* 🌹 petals */
+    /*
+       Rose petals
+    */
 
     createRosePetals(85);
 
 }
 
 
-
-/* =====================================================
-   POINTER EVENTS
-===================================================== */
+/* =========================
+   POINTER DOWN
+========================= */
 
 canvas.addEventListener(
     "pointerdown",
     function(event){
 
-
         if(revealed){
-
             return;
-
         }
 
 
@@ -2337,18 +1899,19 @@ canvas.addEventListener(
 );
 
 
+/* =========================
+   POINTER MOVE
+========================= */
+
 canvas.addEventListener(
     "pointermove",
     function(event){
-
 
         if(
             !scratching ||
             revealed
         ){
-
             return;
-
         }
 
 
@@ -2370,11 +1933,13 @@ canvas.addEventListener(
 );
 
 
+/* =========================
+   STOP SCRATCHING
+========================= */
 
 function stopScratching(
     event
 ){
-
 
     scratching = false;
 
@@ -2403,7 +1968,6 @@ canvas.addEventListener(
     stopScratching
 );
 
-
 canvas.addEventListener(
     "pointercancel",
     stopScratching
@@ -2413,7 +1977,6 @@ canvas.addEventListener(
 canvas.addEventListener(
     "pointerleave",
     function(event){
-
 
         if(
             !canvas.hasPointerCapture(
@@ -2429,7 +1992,6 @@ canvas.addEventListener(
 );
 
 
-
 canvas.addEventListener(
     "contextmenu",
     function(event){
@@ -2440,26 +2002,19 @@ canvas.addEventListener(
 );
 
 
-
-/* =====================================================
-   IMPORTANT:
-   INITIALIZE IMMEDIATELY
-===================================================== */
-
-/*
-   We DO NOT wait for window.load.
-   This prevents the date from flashing
-   before the scratch layer appears.
-*/
-
-resizeScratchCanvas();
-
+/* =========================
+   RESIZE
+========================= */
 
 window.addEventListener(
     "resize",
     function(){
 
-        if(!revealed){
+        if(
+            !revealed &&
+            mainInvitation.style.display ===
+            "block"
+        ){
 
             resizeScratchCanvas();
 
@@ -2469,15 +2024,13 @@ window.addEventListener(
 );
 
 
-
-/* =====================================================
+/* =========================
    ROSE PETALS
-===================================================== */
+========================= */
 
 function createRosePetals(
     amount
 ){
-
 
     const container =
         document.getElementById(
@@ -2490,7 +2043,6 @@ function createRosePetals(
         i < amount;
         i++
     ){
-
 
         const petal =
             document.createElement(
@@ -2568,10 +2120,9 @@ function createRosePetals(
 }
 
 
-
-/* =====================================================
+/* =========================
    COUNTDOWN
-===================================================== */
+========================= */
 
 const targetDate =
     new Date(
@@ -2579,9 +2130,7 @@ const targetDate =
     ).getTime();
 
 
-
 function updateCountdown(){
-
 
     const now =
         new Date().getTime();
@@ -2708,9 +2257,7 @@ setInterval(
     1000
 );
 
-
 </script>
-
 
 </body>
 
