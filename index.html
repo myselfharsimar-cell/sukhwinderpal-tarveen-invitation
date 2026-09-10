@@ -1,640 +1,649 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sukhwinderpal & Tarveen Kaur</title>
 
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
-      rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================================================
-   BASIC RESET
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-    margin:0;
-    background:#f2e0d5;
-    color:#4a2528;
-    font-family:'Cormorant Garamond',serif;
-    overflow-x:hidden;
+  margin:0;
+  background:#f2e0d5;
+  color:#4a2528;
+  font-family:'Cormorant Garamond',serif;
+  overflow-x:hidden;
 }
+button,a{font-family:'Cormorant Garamond',serif}
 
-button,
-a{
-    font-family:'Cormorant Garamond',serif;
-}
-
-
-/* =========================================================
-   OPENING
-========================================================= */
-
+/* OPENING */
 #opening{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:10000;
-
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(160,42,66,.20),
-            transparent 45%
-        ),
-        #21060c;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at center,rgba(160,42,66,.22),transparent 45%),
+    #21060c;
 }
-
-
-/* =========================================================
-   CURTAINS
-========================================================= */
-
 .curtain{
-
-    position:absolute;
-
-    top:0;
-
-    width:53%;
-
-    height:100%;
-
-    z-index:3;
-
-    background:
-
-        repeating-linear-gradient(
-            90deg,
-
-            #2a0710 0px,
-
-            #58121f 30px,
-
-            #3a0914 60px,
-
-            #761a2c 92px,
-
-            #350912 125px,
-
-            #691523 155px
-        );
-
-    box-shadow:
-
-        inset 0 0 45px rgba(0,0,0,.65),
-
-        0 0 35px rgba(0,0,0,.45);
-
-    transition:
-
-        transform 2.2s
-        cubic-bezier(.77,0,.18,1);
+  position:absolute;
+  top:0;
+  width:53%;
+  height:100%;
+  z-index:3;
+  background:repeating-linear-gradient(
+    90deg,
+    #2a0710 0,#58121f 30px,#3a0914 60px,
+    #761a2c 92px,#350912 125px,#691523 155px
+  );
+  box-shadow:inset 0 0 45px rgba(0,0,0,.65),0 0 35px rgba(0,0,0,.45);
+  transition:transform 2.2s cubic-bezier(.77,0,.18,1);
 }
+.curtain.left{left:0}
+.curtain.right{right:0}
+#opening.opened .curtain.left{transform:translateX(-105%)}
+#opening.opened .curtain.right{transform:translateX(105%)}
 
-.curtain.left{
-    left:0;
-}
-
-.curtain.right{
-    right:0;
-}
-
-#opening.opened .curtain.left{
-    transform:translateX(-105%);
-}
-
-#opening.opened .curtain.right{
-    transform:translateX(105%);
-}
-
-
-/* =========================================================
-   OPENING DECORATION
-========================================================= */
-
-.openDecor{
-    position:absolute;
-    z-index:4;
-    pointer-events:none;
-}
-
-.flower{
-    position:absolute;
-    font-size:35px;
-    opacity:.85;
-    filter:drop-shadow(0 4px 5px rgba(0,0,0,.4));
-}
-
-.flower.one{
-    top:9%;
-    left:8%;
-}
-
-.flower.two{
-    top:12%;
-    right:8%;
-}
-
-.flower.three{
-    bottom:10%;
-    left:9%;
-}
-
-.flower.four{
-    bottom:12%;
-    right:9%;
-}
-
-
-/* =========================================================
-   CHANDELIER
-========================================================= */
+.openDecor{position:absolute;inset:0;z-index:4;pointer-events:none}
+.flower{position:absolute;font-size:35px;opacity:.85}
+.flower.one{top:9%;left:8%}
+.flower.two{top:12%;right:8%}
+.flower.three{bottom:10%;left:9%}
+.flower.four{bottom:12%;right:9%}
 
 .chandelier{
-
-    position:absolute;
-
-    z-index:5;
-
-    top:0;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:170px;
-
-    height:130px;
-
-    pointer-events:none;
-
-    opacity:.9;
+  position:absolute;z-index:5;top:0;left:50%;
+  transform:translateX(-50%);
+  width:170px;height:130px;pointer-events:none;
 }
-
 .chandelier .chain{
-
-    position:absolute;
-
-    left:50%;
-
-    top:0;
-
-    width:2px;
-
-    height:45px;
-
-    background:#d8b77f;
-
-    transform:translateX(-50%);
+  position:absolute;left:50%;top:0;width:2px;height:45px;
+  background:#d8b77f;transform:translateX(-50%);
 }
-
 .chandelier .body{
-
-    position:absolute;
-
-    top:40px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:95px;
-
-    height:35px;
-
-    border:2px solid #d8b77f;
-
-    border-radius:50%;
-
-    box-shadow:
-        0 0 20px rgba(255,210,120,.45);
+  position:absolute;top:40px;left:50%;
+  transform:translateX(-50%);
+  width:95px;height:35px;border:2px solid #d8b77f;
+  border-radius:50%;box-shadow:0 0 20px rgba(255,210,120,.45);
 }
-
 .chandelier .light{
-
-    position:absolute;
-
-    width:13px;
-
-    height:13px;
-
-    border-radius:50%;
-
-    background:#ffe7a4;
-
-    box-shadow:
-        0 0 18px #ffe7a4;
-
-    top:54px;
+  position:absolute;width:13px;height:13px;border-radius:50%;
+  top:54px;background:#ffe7a4;box-shadow:0 0 18px #ffe7a4;
 }
-
-.chandelier .light:nth-child(2){
-    left:28px;
-}
-
-.chandelier .light:nth-child(3){
-    left:50%;
-
-    transform:translateX(-50%);
-}
-
-.chandelier .light:nth-child(4){
-    right:28px;
-}
-
-
-/* =========================================================
-   OPENING CONTENT
-========================================================= */
+.chandelier .light:nth-child(2){left:28px}
+.chandelier .light:nth-child(3){left:50%;transform:translateX(-50%)}
+.chandelier .light:nth-child(4){right:28px}
 
 .openContent{
-
-    position:relative;
-
-    z-index:20;
-
-    text-align:center;
-
-    color:#f8ead8;
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
+  position:relative;z-index:20;text-align:center;color:#f8ead8;
+  transition:opacity 1s ease,transform 1s ease;
 }
-
-#opening.opened .openContent{
-
-    opacity:0;
-
-    transform:scale(.96);
-}
-
-
-.openTop{
-
-    font-size:14px;
-
-    letter-spacing:5px;
-
-    margin-bottom:35px;
-}
-
-
+#opening.opened .openContent{opacity:0;transform:scale(.96)}
+.openTop{font-size:14px;letter-spacing:5px;margin-bottom:35px}
 .initials{
-
-    font-family:'Great Vibes',cursive;
-
-    font-size:105px;
-
-    line-height:.62;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    text-shadow:
-        0 4px 10px rgba(0,0,0,.55);
+  font-family:'Great Vibes',cursive;font-size:105px;line-height:.62;
+  display:flex;flex-direction:column;align-items:center;
+  text-shadow:0 4px 10px rgba(0,0,0,.55);
 }
-
 .initials .amp{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:43px;
-
-    line-height:1;
-
-    margin:17px 0;
+  font-family:'Cormorant Garamond',serif;font-size:43px;
+  line-height:1;margin:17px 0;
 }
-
-
 .openButton{
-
-    margin-top:50px;
-
-    padding:15px 32px;
-
-    border:1px solid
-        rgba(248,234,216,.75);
-
-    border-radius:50px;
-
-    background:#f8ead8;
-
-    color:#4a2528;
-
-    font-size:17px;
-
-    letter-spacing:2px;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,.28);
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+  margin-top:50px;padding:15px 32px;
+  border:1px solid rgba(248,234,216,.75);
+  border-radius:50px;background:#f8ead8;color:#4a2528;
+  font-size:17px;letter-spacing:2px;cursor:pointer;
+  box-shadow:0 8px 30px rgba(0,0,0,.28);
 }
+.openButton:active{transform:scale(.97)}
 
-.openButton:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.35);
-}
-
-.openButton:active{
-
-    transform:scale(.97);
-}
-
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-#mainInvitation{
-    display:none;
-}
-
+/* MAIN */
+#mainInvitation{display:none}
 .section{
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:90px 20px;
-
-    text-align:center;
+  position:relative;overflow:hidden;padding:90px 20px;text-align:center;
 }
-
 .section::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-
-    background:
-
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,255,255,.72),
-            transparent 34%
-        ),
-
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(125,55,70,.08),
-            transparent 38%
-        );
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.72),transparent 34%),
+    radial-gradient(circle at 80% 80%,rgba(125,55,70,.08),transparent 38%);
 }
+.section>*{position:relative;z-index:1}
 
-.section > *{
-
-    position:relative;
-
-    z-index:1;
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
+/* INTRO */
 .intro{
-
-    min-height:100vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:
-
-        radial-gradient(
-            circle at center,
-            #fffaf5,
-            #f6e9e0 52%,
-            #e6d0c5
-        );
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  background:radial-gradient(circle at center,#fffaf5,#f6e9e0 52%,#e6d0c5);
 }
+.smallHeading{font-size:14px;letter-spacing:4px;color:#94706b;margin-bottom:18px}
+.scriptHeading{font-family:'Great Vibes',cursive;font-size:66px;color:#702b36}
+.coupleNames{margin-top:18px;font-size:57px;line-height:1.05;color:#4a2528}
+.introText{max-width:620px;margin:25px auto;font-size:20px;line-height:1.7;color:#705653}
+.ornament{color:#8d4e58;font-size:25px;letter-spacing:8px}
 
-.smallHeading{
-
-    font-size:14px;
-
-    letter-spacing:4px;
-
-    color:#94706b;
-
-    margin-bottom:18px;
-}
-
-.scriptHeading{
-
-    font-family:'Great Vibes',cursive;
-
-    font-size:66px;
-
-    color:#702b36;
-}
-
-.coupleNames{
-
-    margin-top:18px;
-
-    font-size:57px;
-
-    line-height:1.05;
-
-    color:#4a2528;
-}
-
-.introText{
-
-    max-width:620px;
-
-    margin:25px auto;
-
-    font-size:20px;
-
-    line-height:1.7;
-
-    color:#705653;
-}
-
-.ornament{
-
-    color:#8d4e58;
-
-    font-size:25px;
-
-    letter-spacing:8px;
-}
-
-
-/* =========================================================
-   SCRATCH SECTION
-========================================================= */
-
+/* SCRATCH */
 .scratchSection{
-
-    background:
-
-        radial-gradient(
-            circle at center,
-            #fffaf5,
-            #f0ded4 55%,
-            #e5cec2
-        );
+  background:radial-gradient(circle at center,#fffaf5,#f0ded4 55%,#e5cec2);
 }
-
-.secretText{
-
-    margin-bottom:35px;
-
-    font-size:20px;
-
-    font-style:italic;
-
-    color:#8d6d68;
-}
-
-
-/* =========================================================
-   SCRATCH WRAPPER
-========================================================= */
-
+.secretText{margin-bottom:35px;font-size:20px;font-style:italic;color:#8d6d68}
 .scratchWrapper{
-
-    position:relative;
-
-    width:min(90vw,430px);
-
-    height:250px;
-
-    margin:auto;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    isolation:isolate;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fffaf5,
-            #f1ddd3
-        );
-
-    box-shadow:
-        0 15px 40px
-        rgba(70,25,30,.18);
+  position:relative;width:min(90vw,430px);height:250px;margin:auto;
+  border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#fffaf5,#f1ddd3);
+  box-shadow:0 15px 40px rgba(70,25,30,.18);
 }
-
-
-/* =========================================================
-   REVEALED CARD
-========================================================= */
-
 .secretReveal{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:1;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fffaf5,
-            #f2ddd3
-        );
+  position:absolute;inset:0;z-index:1;display:flex;
+  align-items:center;justify-content:center;padding:20px;
+  background:linear-gradient(135deg,#fffaf5,#f2ddd3);
 }
-
 .secretRevealInner{
-
-    width:100%;
-
-    height:100%;
-
-    border:1px solid #b98980;
-
-    border-radius:12px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
+  width:100%;height:100%;border:1px solid #b98980;border-radius:12px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.saveTitle{font-size:17px;letter-spacing:5px;color:#7b3540;margin-bottom:12px}
+.saveDate{font-size:34px;font-weight:600;color:#4a2528}
+.saveDay{font-size:21px;margin-top:5px}
+.saveTime{font-size:19px;margin-top:4px}
+#scratchCanvas{
+  position:absolute;inset:0;width:100%;height:100%;z-index:10;
+  display:block;touch-action:none;cursor:crosshair;
 }
 
-.saveTitle{
+/* COUNTDOWN */
+.heartbeat{
+  background:radial-gradient(circle at center,#681f2b,#4a151e 60%,#2e090f);
+  color:#f8ead7;
+}
+.heartbeat .smallHeading{color:#d8b6a8}
+.heartbeatTitle{
+  font-family:'Great Vibes',cursive;font-size:68px;
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:8px;color:#f8ead7;
+}
+.beatingHeart{
+  display:inline-block;color:#f3c4c8;font-family:Arial,sans-serif;
+  font-size:40px;animation:heartbeat 1.2s infinite;
+}
+@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.3)}30%{transform:scale(1)}45%{transform:scale(1.2)}60%{transform:scale(1)}}
+.countdown{display:flex;justify-content:center;gap:35px;margin-top:35px;flex-wrap:wrap}
+.timeBox{min-width:75px}
+.timeNumber{font-size:42px;font-weight:600}
+.timeLabel{font-size:12px;letter-spacing:3px;color:#d8b8ab}
 
-    font-size:17px;
+/* RING */
+.ringSection{background:radial-gradient(circle at center,#fffdf9,#f5e8df 60%,#e8d4c9)}
+.ringIcon{font-size:55px;margin-bottom:15px}
+.ringTitle{font-family:'Great Vibes',cursive;font-size:75px;color:#6c2834}
 
-    letter-spacing:5px;
+/* VENUE */
+.venueSection{background:radial-gradient(circle at center,#fffaf5,#f1e0d5 60%,#e5cec3)}
+.venueTitle{font-family:'Great Vibes',cursive;font-size:58px;color:#6c2834;margin-bottom:25px}
+.venueName{font-size:27px;font-weight:600;margin-bottom:15px}
+.address{font-size:19px;line-height:1.6;color:#705552}
+.locationButton{
+  display:inline-block;margin-top:30px;padding:13px 27px;
+  border:1px solid #8c555c;border-radius:40px;color:#6c2834;
+  text-decoration:none;letter-spacing:2px;
+}
 
-    color:#7b3540;
+/* MOMENTS */
+.momentsSection{background:radial-gradient(circle at center,#fffdf9,#f5e7de 60%,#ead7cc)}
+.momentsTitle{font-family:'Great Vibes',cursive;font-size:72px;color:#6c2834}
+.photoGrid{
+  max-width:1000px;margin:40px auto 0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.photoCard{
+  height:420px;border-radius:15px;overflow:hidden;
+  box-shadow:0 10px 25px rgba(75,30,35,.15);background:#ead7cc;
+}
+.photoCard img{width:100%;height:100%;display:block;object-fit:cover}
 
-    margin-bottom:12px
+/* MUSIC */
+.musicButton{
+  position:fixed;right:20px;bottom:20px;width:52px;height:52px;
+  z-index:9000;border-radius:50%;border:1px solid rgba(255,255,255,.6);
+  background:#641b27;color:#fff4e8;font-size:22px;cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* PETALS */
+#flowerRain{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden}
+.petal{
+  position:absolute;top:-30px;
+  background:radial-gradient(ellipse at 35% 30%,#eaa0a7,#a52d43 60%,#72182c);
+  border-radius:70% 30% 70% 30%;opacity:.85;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  0%{transform:translateY(-40px) rotate(0)}
+  50%{transform:translate(var(--sway),50vh) rotate(180deg)}
+  100%{transform:translate(calc(var(--sway) * -1),110vh) rotate(360deg)}
+}
+
+/* CLOSING */
+.closing{
+  min-height:75vh;background:#26070d;color:#f8ead7;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.closingCurtain{
+  position:absolute;top:0;width:25%;height:100%;opacity:.75;
+  background:repeating-linear-gradient(90deg,#350b13 0,#651421 35px,#3d0b14 70px,#791a29 105px,#350b13 140px);
+}
+.closingCurtain.left{left:0}
+.closingCurtain.right{right:0}
+.closingTitle{position:relative;z-index:2;font-family:'Great Vibes',cursive;font-size:85px}
+.closingNames{
+  position:relative;z-index:2;margin-top:18px;max-width:90%;
+  font-size:23px;letter-spacing:2px;text-align:center;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  .openTop{font-size:12px;letter-spacing:3px}
+  .initials{font-size:78px}
+  .chandelier{transform:translateX(-50%) scale(.75)}
+  .flower{font-size:26px}
+  .scriptHeading{font-size:50px}
+  .coupleNames{font-size:42px}
+  .introText{font-size:18px;max-width:90%}
+  .heartbeatTitle{font-size:48px}
+  .countdown{gap:17px}
+  .timeBox{min-width:60px}
+  .timeNumber{font-size:32px}
+  .timeLabel{font-size:9px;letter-spacing:2px}
+  .ringTitle{font-size:58px}
+  .venueTitle{font-size:52px}
+  .venueName{font-size:23px}
+  .address{font-size:18px}
+  .momentsTitle{font-size:58px}
+  .photoGrid{grid-template-columns:1fr}
+  .photoCard{height:430px}
+  .closingTitle{font-size:62px}
+  .closingNames{font-size:17px;line-height:1.5}
+}
+@media(max-width:380px){
+  .scratchWrapper{height:230px}
+  .saveDate{font-size:28px}
+  .saveDay{font-size:19px}
+  .saveTime{font-size:17px}
+  .openButton{font-size:15px;padding:14px 24px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<section id="opening">
+  <div class="curtain left"></div>
+  <div class="curtain right"></div>
+
+  <div class="chandelier">
+    <div class="chain"></div>
+    <div class="body"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+  </div>
+
+  <div class="openDecor">
+    <div class="flower one">❀</div>
+    <div class="flower two">✿</div>
+    <div class="flower three">❀</div>
+    <div class="flower four">✿</div>
+  </div>
+
+  <div class="openContent">
+    <div class="openTop">A BEAUTIFUL BEGINNING AWAITS</div>
+
+    <div class="initials">
+      <span>S</span>
+      <span class="amp">&amp;</span>
+      <span>T</span>
+    </div>
+
+    <button type="button" class="openButton" id="openInvitation">
+      OPEN INVITATION ♡
+    </button>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<audio id="weddingSong" src="Lets%20Talk%20Do%20Gallan.mp3" loop preload="auto"></audio>
+<button id="musicButton" class="musicButton" style="display:none" aria-label="Play or pause music">♪</button>
+
+<!-- MAIN INVITATION -->
+<main id="mainInvitation">
+
+  <!-- INTRO -->
+  <section class="section intro">
+    <div class="smallHeading">TOGETHER WITH OUR FAMILIES</div>
+    <div class="scriptHeading">We invite you</div>
+
+    <div class="introText">
+      With hearts full of happiness and love,
+      we invite you to celebrate a beautiful beginning with us.
+    </div>
+
+    <div class="coupleNames">
+      Sukhwinderpal Singh
+      <br>
+      <span style="font-family:'Great Vibes',cursive">&amp;</span>
+      <br>
+      Tarveen Kaur
+    </div>
+
+    <div class="ornament">❧ &nbsp; ♡ &nbsp; ❧</div>
+
+    <div class="introText">Two hearts, one beautiful beginning ♡</div>
+  </section>
+
+  <!-- SCRATCH -->
+  <section class="section scratchSection">
+    <div class="secretText">A little secret is waiting underneath....</div>
+
+    <div class="scratchWrapper" id="scratchWrapper">
+      <div class="secretReveal" id="secretReveal">
+        <div class="secretRevealInner">
+          <div class="saveTitle">SAVE THE DATE</div>
+          <div class="saveDate">19 September 2026</div>
+          <div class="saveDay">Saturday</div>
+          <div class="saveTime">7:00 PM</div>
+        </div>
+      </div>
+      <canvas id="scratchCanvas"></canvas>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="section heartbeat">
+    <div class="smallHeading">COUNTING EVERY HEARTBEAT ♡</div>
+
+    <div class="heartbeatTitle">
+      <span class="beatingHeart">♡</span>
+      <span>Until we celebrate</span>
+      <span class="beatingHeart">♡</span>
+    </div>
+
+    <div class="countdown">
+      <div class="timeBox"><div class="timeNumber" id="days">00</div><div class="timeLabel">DAYS</div></div>
+      <div class="timeBox"><div class="timeNumber" id="hours">00</div><div class="timeLabel">HOURS</div></div>
+      <div class="timeBox"><div class="timeNumber" id="minutes">00</div><div class="timeLabel">MINUTES</div></div>
+      <div class="timeBox"><div class="timeNumber" id="seconds">00</div><div class="timeLabel">SECONDS</div></div>
+    </div>
+  </section>
+
+  <!-- RING CEREMONY -->
+  <section class="section ringSection">
+    <div class="smallHeading">A PROMISE TO FOREVER</div>
+    <div class="ringIcon">💍</div>
+    <div class="ringTitle">Ring Ceremony</div>
+  </section>
+
+  <!-- VENUE -->
+  <section class="section venueSection">
+    <div class="smallHeading">THE CELEBRATION</div>
+    <div class="venueTitle">The Venue</div>
+
+    <div class="venueName">The Grace BY: Symphony Banquet</div>
+
+    <div class="address">
+      B-10, G.T. Karnal Road<br>
+      Opp. Gujranwala Town<br>
+      (Behind Shakti Nagar Tele Xchange)<br>
+      New Delhi - 33
+    </div>
+
+    <a class="locationButton"
+       href="https://www.google.com/maps/search/?api=1&query=The+Grace+BY+Symphony+Banquet+B-10+GT+Karnal+Road+New+Delhi"
+       target="_blank" rel="noopener">
+      VIEW LOCATION ♡
+    </a>
+  </section>
+
+  <!-- MOMENTS -->
+  <section class="section momentsSection">
+    <div class="smallHeading">A FEW BEAUTIFUL MOMENTS</div>
+    <div class="momentsTitle">Our Moments</div>
+
+    <div class="photoGrid">
+      <div class="photoCard"><img src="couple1.jpeg.jpeg" alt="A beautiful moment"></div>
+      <div class="photoCard"><img src="couple2.jpeg.jpeg" alt="A beautiful moment"></div>
+      <div class="photoCard"><img src="couple3.jpeg.jpeg" alt="A beautiful moment"></div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="section closing">
+    <div class="closingCurtain left"></div>
+    <div class="closingCurtain right"></div>
+
+    <div class="closingTitle">See you soon ♡</div>
+    <div class="closingNames">Regards Kuljeet Kaur and Amrinderpal Singh</div>
+  </section>
+
+</main>
+
+<div id="flowerRain"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const opening = document.getElementById("opening");
+  const openButton = document.getElementById("openInvitation");
+  const main = document.getElementById("mainInvitation");
+  const song = document.getElementById("weddingSong");
+  const musicButton = document.getElementById("musicButton");
+
+  /* OPENING: this handler does not depend on the scratch card */
+  openButton.addEventListener("click", function(){
+
+    if(song){
+      song.volume = 0.65;
+      song.play().then(function(){
+        if(musicButton){
+          musicButton.style.display="flex";
+          musicButton.textContent="♪";
+        }
+      }).catch(function(){
+        if(musicButton) musicButton.style.display="flex";
+      });
+    }
+
+    opening.classList.add("opened");
+
+    setTimeout(function(){
+      opening.style.display="none";
+      main.style.display="block";
+      window.scrollTo(0,0);
+      setTimeout(initializeScratch,100);
+    },2200);
+  });
+
+  /* MUSIC */
+  if(musicButton && song){
+    musicButton.addEventListener("click",function(){
+      if(song.paused){
+        song.play().then(function(){
+          musicButton.textContent="♪";
+        }).catch(function(){});
+      }else{
+        song.pause();
+        musicButton.textContent="♫";
+      }
+    });
+  }
+
+  /* SCRATCH */
+  let canvas=null, wrapper=null, reveal=null, ctx=null;
+  let scratching=false, revealed=false, strokes=0;
+
+  function initializeScratch(){
+    canvas=document.getElementById("scratchCanvas");
+    wrapper=document.getElementById("scratchWrapper");
+    reveal=document.getElementById("secretReveal");
+
+    if(!canvas || !wrapper || !reveal) return;
+
+    ctx=canvas.getContext("2d");
+    if(!ctx) return;
+
+    const rect=wrapper.getBoundingClientRect();
+    if(rect.width<=0 || rect.height<=0){
+      setTimeout(initializeScratch,200);
+      return;
+    }
+
+    const dpr=Math.min(window.devicePixelRatio||1,2);
+    canvas.width=Math.round(rect.width*dpr);
+    canvas.height=Math.round(rect.height*dpr);
+    canvas.style.width=rect.width+"px";
+    canvas.style.height=rect.height+"px";
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+
+    drawScratch();
+
+    canvas.addEventListener("pointerdown",function(e){
+      if(revealed)return;
+      scratching=true;
+      try{canvas.setPointerCapture(e.pointerId)}catch(err){}
+      scratch(e);
+      e.preventDefault();
+    });
+
+    canvas.addEventListener("pointermove",function(e){
+      if(!scratching || revealed)return;
+      scratch(e);
+      e.preventDefault();
+    });
+
+    canvas.addEventListener("pointerup",function(e){
+      scratching=false;
+      try{canvas.releasePointerCapture(e.pointerId)}catch(err){}
+    });
+
+    canvas.addEventListener("pointercancel",function(){scratching=false});
+    canvas.addEventListener("contextmenu",function(e){e.preventDefault()});
+  }
+
+  function drawScratch(){
+    const w=wrapper.clientWidth, h=wrapper.clientHeight;
+
+    ctx.globalCompositeOperation="source-over";
+
+    const g=ctx.createLinearGradient(0,0,w,h);
+    g.addColorStop(0,"#8e6045");
+    g.addColorStop(.45,"#d6ad7c");
+    g.addColorStop(.7,"#b5835d");
+    g.addColorStop(1,"#86583f");
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,w,h);
+
+    const shine=ctx.createLinearGradient(0,0,w,0);
+    shine.addColorStop(0,"rgba(255,255,255,.04)");
+    shine.addColorStop(.5,"rgba(255,255,255,.30)");
+    shine.addColorStop(1,"rgba(255,255,255,.04)");
+    ctx.fillStyle=shine;
+    ctx.fillRect(0,0,w,h);
+
+    ctx.fillStyle="rgba(255,255,255,.9)";
+    ctx.font="600 20px Cormorant Garamond";
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+    ctx.fillText("SCRATCH HERE ♡",w/2,h/2);
+  }
+
+  function scratch(e){
+    if(!ctx || revealed)return;
+
+    const rect=canvas.getBoundingClientRect();
+    const x=e.clientX-rect.left;
+    const y=e.clientY-rect.top;
+
+    ctx.globalCompositeOperation="destination-out";
+    ctx.beginPath();
+    ctx.arc(x,y,30,0,Math.PI*2);
+    ctx.fill();
+
+    strokes++;
+    if(strokes>=25) revealScratch();
+  }
+
+  function revealScratch(){
+    if(revealed)return;
+    revealed=true;
+
+    /* Remove canvas completely so no brown layer remains */
+    if(canvas) canvas.remove();
+
+    reveal.style.visibility="visible";
+    reveal.style.opacity="1";
+
+    createPetals(90);
+  }
+
+  function createPetals(amount){
+    const container=document.getElementById("flowerRain");
+    if(!container)return;
+
+    for(let i=0;i<amount;i++){
+      const p=document.createElement("div");
+      p.className="petal";
+      const size=8+Math.random()*12;
+
+      p.style.width=size+"px";
+      p.style.height=size*1.5+"px";
+      p.style.left=Math.random()*100+"%";
+      p.style.setProperty("--sway",(Math.random()*240-120)+"px");
+      p.style.animationDuration=(4+Math.random()*5)+"s";
+      p.style.animationDelay=(Math.random()*2)+"s";
+
+      container.appendChild(p);
+      setTimeout(function(){p.remove()},11000);
+    }
+  }
+
+  /* COUNTDOWN */
+  const target=new Date("2026-09-19T19:00:00+05:30").getTime();
+
+  function countdown(){
+    const d=document.getElementById("days");
+    const h=document.getElementById("hours");
+    const m=document.getElementById("minutes");
+    const s=document.getElementById("seconds");
+    if(!d||!h||!m||!s)return;
+
+    let diff=target-Date.now();
+    if(diff<0)diff=0;
+
+    const days=Math.floor(diff/86400000);
+    const hours=Math.floor((diff/3600000)%24);
+    const mins=Math.floor((diff/60000)%60);
+    const secs=Math.floor((diff/1000)%60);
+
+    d.textContent=String(days).padStart(2,"0");
+    h.textContent=String(hours).padStart(2,"0");
+    m.textContent=String(mins).padStart(2,"0");
+    s.textContent=String(secs).padStart(2,"0");
+  }
+
+  countdown();
+  setInterval(countdown,1000);
+});
+</script>
+
+</body>
+</html>
