@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Sukhwinderpal & Tarveen Kaur</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+rel="stylesheet">
+
 
 <style>
+
+/* =====================================================
+   BASIC
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -24,474 +38,1000 @@ html{
 }
 
 body{
-    background:#f8f0e8;
+
+    background:#f4e7dd;
+
     color:#4a2528;
-    font-family:'Cormorant Garamond',serif;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
     overflow-x:hidden;
 }
 
-/* =========================
-   OPENING SCREEN
-========================= */
+
+/* =====================================================
+   OPENING CURTAINS
+===================================================== */
 
 #opening{
+
     position:fixed;
+
     inset:0;
+
     z-index:9999;
+
     background:#26070d;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     overflow:hidden;
 }
 
+
 .curtain{
+
     position:absolute;
+
     top:0;
+
     width:51%;
+
     height:100%;
+
     z-index:3;
+
     background:
-        repeating-linear-gradient(
-            90deg,
-            #350b13 0px,
-            #651421 35px,
-            #3d0b14 70px,
-            #791a29 105px,
-            #350b13 140px
-        );
+
+    repeating-linear-gradient(
+        90deg,
+        #350b13 0px,
+        #651421 35px,
+        #3d0b14 70px,
+        #791a29 105px,
+        #350b13 140px
+    );
+
     box-shadow:
-        inset -20px 0 35px rgba(0,0,0,.45),
-        inset 15px 0 25px rgba(255,255,255,.04);
-    transition:transform 2.2s cubic-bezier(.77,0,.18,1);
+
+    inset -20px 0 35px
+    rgba(0,0,0,.45),
+
+    inset 15px 0 25px
+    rgba(255,255,255,.04);
+
+    transition:
+        transform 2.2s
+        cubic-bezier(.77,0,.18,1);
 }
+
 
 .curtain.left{
     left:0;
 }
 
+
 .curtain.right{
+
     right:0;
+
     transform:scaleX(-1);
 }
 
+
 #opening.opened .curtain.left{
-    transform:translateX(-100%);
+
+    transform:
+        translateX(-100%);
 }
+
 
 #opening.opened .curtain.right{
-    transform:translateX(100%) scaleX(-1);
+
+    transform:
+        translateX(100%)
+        scaleX(-1);
 }
+
+
+/* =====================================================
+   OPENING CONTENT
+===================================================== */
 
 .chandelier{
+
     position:absolute;
+
     top:5%;
+
     left:50%;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     z-index:2;
+
     font-size:38px;
+
     color:#e9c98c;
-    text-shadow:0 0 20px rgba(255,220,150,.8);
+
+    text-shadow:
+        0 0 20px
+        rgba(255,220,150,.8);
 }
+
 
 .openContent{
+
     position:relative;
+
     z-index:5;
+
     text-align:center;
+
     color:#f8ead7;
-    transition:opacity 1s ease;
+
+    transition:
+        opacity 1s ease;
 }
 
+
 #opening.opened .openContent{
+
     opacity:0;
 }
 
+
 .openTop{
+
     font-size:15px;
+
     letter-spacing:5px;
+
     margin-bottom:30px;
 }
 
+
+/* VERTICAL INITIALS */
+
 .initials{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(68px,15vw,112px);
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(68px,15vw,112px);
+
     line-height:.72;
+
     color:#f8ead7;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     text-shadow:
-        0 2px 4px rgba(0,0,0,.5),
-        0 0 18px rgba(255,235,190,.25);
+
+        0 2px 4px
+        rgba(0,0,0,.5),
+
+        0 0 18px
+        rgba(255,235,190,.25);
 }
 
+
 .initials span{
+
     display:block;
 }
 
+
 .initials span:nth-child(2){
-    font-family:'Cormorant Garamond',serif;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
     font-size:.38em;
+
     line-height:.7;
+
     margin:8px 0;
 }
 
+
 .openPhrase{
+
     margin-top:32px;
+
     font-size:14px;
+
     letter-spacing:4px;
 }
 
+
 .openButton{
+
     margin-top:32px;
-    border:1px solid rgba(248,234,215,.7);
-    background:rgba(255,255,255,.04);
+
+    border:
+        1px solid
+        rgba(248,234,215,.7);
+
+    background:
+        rgba(255,255,255,.04);
+
     color:#f8ead7;
-    padding:13px 27px;
+
+    padding:
+        13px 27px;
+
     border-radius:40px;
-    font-family:'Cormorant Garamond',serif;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
     font-size:16px;
+
     letter-spacing:2px;
+
     cursor:pointer;
+
     transition:.3s;
 }
 
+
 .openButton:hover{
+
     background:#f8ead7;
+
     color:#4a2528;
 }
 
-/* =========================
-   MAIN INVITATION
-========================= */
+
+/* =====================================================
+   MAIN
+===================================================== */
 
 #mainInvitation{
+
     display:none;
 }
 
+
 .section{
-    padding:90px 20px;
+
+    padding:
+        90px 20px;
+
     text-align:center;
+
     position:relative;
+
+    overflow:hidden;
 }
+
+
+/* luxury texture over sections */
+
+.section::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.45;
+
+    background:
+
+        radial-gradient(
+            circle at 12% 18%,
+            rgba(143,76,84,.10)
+            0 2px,
+            transparent 3px
+        ),
+
+        radial-gradient(
+            circle at 88% 78%,
+            rgba(143,76,84,.08)
+            0 2px,
+            transparent 3px
+        ),
+
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.75),
+            transparent 68%
+        );
+
+    background-size:
+        90px 90px,
+        120px 120px,
+        100% 100%;
+}
+
+
+.section > *{
+
+    position:relative;
+
+    z-index:1;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
 
 .intro{
+
     min-height:100vh;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
+
     background:
-        radial-gradient(circle at center,#fffaf5 0%,#f8eee6 60%,#f2e3d9 100%);
+
+        radial-gradient(
+            circle at 50% 35%,
+            #fffaf5 0%,
+            #f8eee5 45%,
+            #ead7cc 100%
+        );
 }
 
+
 .smallHeading{
+
     font-size:14px;
+
     letter-spacing:4px;
+
     color:#936d68;
+
     margin-bottom:18px;
 }
 
+
 .scriptHeading{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(42px,8vw,68px);
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(42px,8vw,68px);
+
     color:#692832;
 }
 
+
 .coupleNames{
+
     margin-top:18px;
-    font-size:clamp(38px,8vw,64px);
+
+    font-size:
+        clamp(38px,8vw,64px);
+
     line-height:1.1;
+
     color:#4a2528;
 }
 
+
 .introText{
+
     max-width:600px;
+
     margin:25px auto;
+
     font-size:20px;
+
     line-height:1.7;
+
     color:#6e5553;
 }
 
+
+/* NEW ELEGANT DIVIDER */
+
 .ornament{
+
     margin:22px 0;
+
     font-size:25px;
+
     color:#8e4d58;
-    letter-spacing:10px;
+
+    letter-spacing:8px;
 }
 
-/* =========================
+
+/* =====================================================
    SCRATCH SECTION
-========================= */
+===================================================== */
 
 .scratchSection{
-    background:#f7ece5;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            #fffaf5,
+            #f2e2d8 55%,
+            #e6cfc3
+        );
 }
 
+
 .secretText{
+
     margin-top:10px;
+
     margin-bottom:35px;
+
     font-size:20px;
+
     color:#92726d;
+
     font-style:italic;
 }
 
+
 .scratchWrapper{
-    width:min(90vw,430px);
+
+    width:
+        min(90vw,430px);
+
     height:250px;
+
     margin:0 auto;
+
     position:relative;
+
     border-radius:18px;
+
     overflow:hidden;
-    box-shadow:0 15px 40px rgba(75,30,35,.18);
+
+    box-shadow:
+
+        0 15px 40px
+        rgba(75,30,35,.18),
+
+        0 2px 8px
+        rgba(75,30,35,.10);
 }
 
+
+/* revealed card */
+
 .secretReveal{
+
     position:absolute;
+
     inset:0;
+
     background:
+
         linear-gradient(
             135deg,
             #fff9f2,
             #f4ddd1
         );
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
+
     padding:25px;
 }
 
+
 .secretRevealInner{
-    border:1px solid #b88b82;
+
+    border:
+        1px solid #b88b82;
+
     width:100%;
+
     height:100%;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     border-radius:12px;
 }
 
+
 .saveTitle{
+
     font-size:17px;
+
     letter-spacing:5px;
+
     color:#7b3540;
+
     margin-bottom:12px;
 }
 
+
 .saveDate{
+
     font-size:34px;
+
     color:#4a2528;
+
     font-weight:600;
 }
 
+
 .saveDay{
+
     font-size:21px;
+
     margin-top:5px;
+
     color:#6e5553;
 }
+
 
 .saveTime{
+
     font-size:19px;
+
     margin-top:4px;
+
     color:#6e5553;
 }
 
+
+/* SCRATCH CANVAS */
+
 #scratchCanvas{
+
     position:absolute;
+
     inset:0;
+
     width:100%;
+
     height:100%;
-    cursor:grab;
+
+    cursor:crosshair;
+
     touch-action:none;
-    z-index:4;
+
+    z-index:10;
+
+    display:block;
 }
 
-#scratchCanvas:active{
-    cursor:grabbing;
-}
 
-/* =========================
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 .heartbeat{
-    background:#4a151e;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #681f2b 0%,
+            #4a151e 55%,
+            #300b12 100%
+        );
+
     color:#f8ead7;
 }
 
+
+.heartbeat::before{
+
+    opacity:.12;
+}
+
+
 .heartbeat .smallHeading{
+
     color:#d9b8a5;
 }
 
+
 .heartbeatTitle{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(45px,9vw,70px);
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(45px,9vw,70px);
+
     color:#f8ead7;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:8px;
 }
 
+
+/* BUMPING HEART */
+
+.beatingHeart{
+
+    display:inline-block;
+
+    font-family:Arial,sans-serif;
+
+    font-size:.55em;
+
+    margin:0 8px;
+
+    animation:
+        heartbeat 1.2s infinite;
+
+    transform-origin:center;
+
+    color:#f5c5c5;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,180,190,.35);
+}
+
+
+@keyframes heartbeat{
+
+    0%{
+        transform:scale(1);
+    }
+
+    15%{
+        transform:scale(1.3);
+    }
+
+    30%{
+        transform:scale(1);
+    }
+
+    45%{
+        transform:scale(1.2);
+    }
+
+    60%{
+        transform:scale(1);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+
 .countdown{
+
     display:flex;
+
     justify-content:center;
-    gap:clamp(12px,4vw,35px);
+
+    gap:
+        clamp(12px,4vw,35px);
+
     margin-top:35px;
+
     flex-wrap:wrap;
 }
 
+
 .timeBox{
+
     min-width:70px;
 }
 
+
 .timeNumber{
+
     font-size:42px;
+
     font-weight:600;
 }
 
+
 .timeLabel{
+
     font-size:12px;
+
     letter-spacing:3px;
+
     color:#d8b8ab;
 }
 
-/* =========================
+
+/* =====================================================
    RING CEREMONY
-========================= */
+===================================================== */
 
 .ringSection{
-    background:#fff9f3;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 30%,
+            #fffdf9,
+            #f7ebe2 55%,
+            #ead8cd
+        );
 }
 
+
 .ringIcon{
+
     font-size:55px;
+
     margin-bottom:15px;
 }
 
+
 .ringTitle{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(50px,10vw,78px);
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(50px,10vw,78px);
+
     color:#6c2834;
 }
 
-/* =========================
+
+/* =====================================================
    VENUE
-========================= */
+===================================================== */
 
 .venueSection{
-    background:#f5e6dc;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            #fffaf5,
+            #f1e0d5 55%,
+            #e6d0c5
+        );
 }
 
+
+/* smaller venue heading */
+
 .venueTitle{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(42px,8vw,58px);
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(42px,8vw,58px);
+
     color:#6c2834;
+
     margin-bottom:25px;
 }
 
+
 .venueName{
+
     font-size:27px;
+
     font-weight:600;
+
     margin-bottom:15px;
 }
 
+
 .address{
+
     font-size:19px;
+
     line-height:1.6;
+
     color:#705552;
 }
 
+
 .locationButton{
+
     display:inline-block;
+
     margin-top:30px;
-    padding:13px 27px;
-    border:1px solid #8c555c;
+
+    padding:
+        13px 27px;
+
+    border:
+        1px solid #8c555c;
+
     border-radius:40px;
+
     text-decoration:none;
+
     color:#6c2834;
+
     font-size:16px;
+
     letter-spacing:2px;
+
     transition:.3s;
 }
 
+
 .locationButton:hover{
+
     background:#6c2834;
+
     color:white;
 }
 
-/* =========================
+
+/* =====================================================
    MOMENTS
-========================= */
+===================================================== */
 
 .momentsSection{
-    background:#fffaf6;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 20%,
+            #fffdf9,
+            #f5e7de 60%,
+            #ead7cc
+        );
 }
 
+
 .momentsTitle{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(50px,9vw,72px);
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(50px,9vw,72px);
+
     color:#6c2834;
 }
 
+
 .photoGrid{
+
     max-width:1000px;
-    margin:40px auto 0;
+
+    margin:
+        40px auto 0;
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:20px;
 }
 
+
 .photoCard{
+
     height:420px;
+
     border-radius:15px;
+
     overflow:hidden;
+
     background:#ead9cf;
-    box-shadow:0 10px 25px rgba(75,30,35,.12);
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(75,30,35,.15),
+
+        0 2px 6px
+        rgba(75,30,35,.08);
 }
+
 
 .photoCard img{
+
     width:100%;
+
     height:100%;
+
     display:block;
+
     object-fit:cover;
+
+    transition:
+        transform .5s ease;
 }
 
-.photoCard img.photoMissing{
-    display:none;
+
+.photoCard:hover img{
+
+    transform:scale(1.04);
 }
 
-.photoPlaceholder{
-    width:100%;
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    color:#9a7770;
-    font-size:18px;
-}
 
-/* =========================
+/* =====================================================
    CLOSING
-========================= */
+===================================================== */
 
 .closing{
+
     min-height:75vh;
+
     background:#26070d;
+
     color:#f8ead7;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     overflow:hidden;
 }
 
+
 .closingCurtain{
+
     position:absolute;
+
     top:0;
+
     width:28%;
+
     height:100%;
+
     background:
+
         repeating-linear-gradient(
             90deg,
             #350b13 0px,
@@ -500,487 +1040,946 @@ body{
             #791a29 105px,
             #350b13 140px
         );
+
     opacity:.8;
 }
 
+
 .closingCurtain.left{
+
     left:0;
 }
 
+
 .closingCurtain.right{
+
     right:0;
 }
 
+
 .closingTitle{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(55px,10vw,85px);
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(55px,10vw,85px);
+
     position:relative;
+
     z-index:2;
 }
+
 
 .closingNames{
+
     font-size:23px;
+
     letter-spacing:3px;
+
     margin-top:15px;
+
     position:relative;
+
     z-index:2;
 }
 
-/* =========================
+
+/* =====================================================
    ROSE PETALS
-========================= */
+===================================================== */
 
 #flowerRain{
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:9998;
+
     overflow:hidden;
 }
 
+
 .petal{
+
     position:absolute;
+
     top:-30px;
+
     background:
+
         radial-gradient(
             ellipse at 35% 30%,
             #eaa0a7,
             #a52d43 60%,
             #72182c
         );
-    border-radius:70% 30% 70% 30%;
+
+    border-radius:
+        70% 30% 70% 30%;
+
     opacity:.85;
-    animation:fall linear forwards;
+
+    animation:
+        fall linear forwards;
 }
 
+
 @keyframes fall{
+
     0%{
-        transform:translate3d(0,-40px,0) rotate(0deg);
+
+        transform:
+            translate3d(0,-40px,0)
+            rotate(0deg);
     }
 
     50%{
-        transform:translate3d(var(--sway),50vh,0) rotate(180deg);
+
+        transform:
+            translate3d(
+                var(--sway),
+                50vh,
+                0
+            )
+            rotate(180deg);
     }
 
     100%{
-        transform:translate3d(calc(var(--sway) * -1),110vh,0) rotate(360deg);
+
+        transform:
+            translate3d(
+                calc(var(--sway) * -1),
+                110vh,
+                0
+            )
+            rotate(360deg);
     }
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:700px){
 
     .section{
-        padding:75px 18px;
+
+        padding:
+            75px 18px;
     }
 
+
     .photoGrid{
+
         grid-template-columns:1fr;
+
         max-width:430px;
     }
 
+
     .photoCard{
+
         height:430px;
     }
 
+
     .countdown{
+
         gap:18px;
     }
 
+
     .timeBox{
+
         min-width:60px;
     }
 
+
     .timeNumber{
+
         font-size:34px;
     }
 
+
     .venueName{
+
         font-size:24px;
     }
 
+
     .address{
+
         font-size:18px;
     }
+
+
+    .secretText{
+
+        font-size:18px;
+    }
+
+
+    .saveDate{
+
+        font-size:29px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media(max-width:380px){
+
+    .initials{
+
+        font-size:65px;
+    }
+
+
+    .openTop{
+
+        font-size:12px;
+
+        letter-spacing:3px;
+    }
+
+
+    .openPhrase{
+
+        font-size:12px;
+
+        letter-spacing:2px;
+    }
+
+
+    .timeNumber{
+
+        font-size:29px;
+    }
+
+
+    .timeLabel{
+
+        font-size:10px;
+
+        letter-spacing:2px;
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================
-     OPENING
-========================= -->
+
+<!-- =====================================================
+     OPENING SCREEN
+===================================================== -->
 
 <section id="opening">
 
     <div class="curtain left"></div>
+
     <div class="curtain right"></div>
 
-    <div class="chandelier">✦</div>
+
+    <div class="chandelier">
+        ✦
+    </div>
+
 
     <div class="openContent">
+
 
         <div class="openTop">
             A BEAUTIFUL BEGINNING AWAITS
         </div>
 
+
         <div class="initials">
+
             <span>S</span>
+
             <span>&amp;</span>
+
             <span>T</span>
+
         </div>
+
 
         <div class="openPhrase">
             TWO HEARTS • ONE JOURNEY
         </div>
 
-        <button class="openButton" id="openInvitation">
+
+        <button
+            class="openButton"
+            id="openInvitation">
+
             OPEN INVITATION ♡
+
         </button>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      MAIN INVITATION
-========================= -->
+===================================================== -->
 
 <main id="mainInvitation">
 
 
-    <!-- INTRO -->
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
-    <section class="section intro">
-
-        <div class="smallHeading">
-            TOGETHER WITH OUR FAMILIES
-        </div>
-
-        <div class="scriptHeading">
-            We invite you
-        </div>
-
-        <div class="introText">
-            With hearts full of happiness and love,
-            we invite you to celebrate a beautiful
-            beginning with us.
-        </div>
-
-        <div class="coupleNames">
-            Sukhwinderpal<br>
-            <span style="font-family:'Great Vibes',cursive;">&amp;</span><br>
-            Tarveen Kaur
-        </div>
-
-        <div class="ornament">
-            ❧ &nbsp; ♡ &nbsp; ❧
-        </div>
-
-        <div class="introText">
-            Two hearts, one beautiful beginning ♡
-        </div>
-
-    </section>
+<section class="section intro">
 
 
-    <!-- SCRATCH -->
+    <div class="smallHeading">
+        TOGETHER WITH OUR FAMILIES
+    </div>
 
-    <section class="section scratchSection">
 
-        <div class="secretText">
-            A little secret is waiting underneath....
-        </div>
+    <div class="scriptHeading">
+        We invite you
+    </div>
 
-        <div class="scratchWrapper">
 
-            <div class="secretReveal">
+    <div class="introText">
 
-                <div class="secretRevealInner">
+        With hearts full of happiness and love,
+        we invite you to celebrate a beautiful
+        beginning with us.
 
-                    <div class="saveTitle">
-                        SAVE THE DATE
-                    </div>
+    </div>
 
-                    <div class="saveDate">
-                        19 September 2026
-                    </div>
 
-                    <div class="saveDay">
-                        Saturday
-                    </div>
+    <div class="coupleNames">
 
-                    <div class="saveTime">
-                        7:00 PM
-                    </div>
+        Sukhwinderpal
+
+        <br>
+
+        <span
+            style="
+            font-family:'Great Vibes',cursive;
+            ">
+
+            &amp;
+
+        </span>
+
+        <br>
+
+        Tarveen Kaur
+
+    </div>
+
+
+    <div class="ornament">
+
+        ❧ &nbsp; ♡ &nbsp; ❧
+
+    </div>
+
+
+    <div class="introText">
+
+        Two hearts, one beautiful beginning ♡
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SCRATCH CARD
+===================================================== -->
+
+<section class="section scratchSection">
+
+
+    <div class="secretText">
+
+        A little secret is waiting underneath....
+
+    </div>
+
+
+    <div class="scratchWrapper">
+
+
+        <!-- REVEALED CONTENT -->
+
+        <div class="secretReveal">
+
+
+            <div class="secretRevealInner">
+
+
+                <div class="saveTitle">
+
+                    SAVE THE DATE
 
                 </div>
 
+
+                <div class="saveDate">
+
+                    19 September 2026
+
+                </div>
+
+
+                <div class="saveDay">
+
+                    Saturday
+
+                </div>
+
+
+                <div class="saveTime">
+
+                    7:00 PM
+
+                </div>
+
+
             </div>
 
-            <canvas id="scratchCanvas"></canvas>
 
         </div>
 
-    </section>
+
+        <!-- SCRATCH LAYER -->
+
+        <canvas
+            id="scratchCanvas">
+        </canvas>
 
 
-    <!-- COUNTDOWN -->
+    </div>
 
-    <section class="section heartbeat">
 
-        <div class="smallHeading">
-            COUNTING EVERY HEARTBEAT ♡
-        </div>
+</section>
 
-        <div class="heartbeatTitle">
-            Until we celebrate
-        </div>
 
-        <div class="countdown">
 
-            <div class="timeBox">
-                <div class="timeNumber" id="days">00</div>
-                <div class="timeLabel">DAYS</div>
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<section class="section heartbeat">
+
+
+    <div class="smallHeading">
+
+        COUNTING EVERY HEARTBEAT ♡
+
+    </div>
+
+
+    <div class="heartbeatTitle">
+
+
+        <span class="beatingHeart">
+            ♡
+        </span>
+
+
+        Until we celebrate
+
+
+        <span class="beatingHeart">
+            ♡
+        </span>
+
+
+    </div>
+
+
+    <div class="countdown">
+
+
+        <div class="timeBox">
+
+            <div
+                class="timeNumber"
+                id="days">
+
+                00
+
             </div>
 
-            <div class="timeBox">
-                <div class="timeNumber" id="hours">00</div>
-                <div class="timeLabel">HOURS</div>
-            </div>
-
-            <div class="timeBox">
-                <div class="timeNumber" id="minutes">00</div>
-                <div class="timeLabel">MINUTES</div>
-            </div>
-
-            <div class="timeBox">
-                <div class="timeNumber" id="seconds">00</div>
-                <div class="timeLabel">SECONDS</div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- RING CEREMONY -->
-
-    <section class="section ringSection">
-
-        <div class="smallHeading">
-            A PROMISE TO FOREVER
-        </div>
-
-        <div class="ringIcon">
-            💍
-        </div>
-
-        <div class="ringTitle">
-            Ring Ceremony
-        </div>
-
-    </section>
-
-
-    <!-- VENUE -->
-
-    <section class="section venueSection">
-
-        <div class="smallHeading">
-            THE CELEBRATION
-        </div>
-
-        <div class="venueTitle">
-            The Venue
-        </div>
-
-        <div class="venueName">
-            The Grace BY: Symphony Banquet
-        </div>
-
-        <div class="address">
-            B-10, G.T. Karnal Road<br>
-            Opp. Gujranwala Town<br>
-            (Behind Shakti Nagar Tele Xchange)<br>
-            New Delhi - 33
-        </div>
-
-        <a
-            class="locationButton"
-            href="https://www.google.com/maps/search/?api=1&query=The+Grace+BY+Symphony+Banquet+B-10+GT+Karnal+Road+New+Delhi"
-            target="_blank"
-        >
-            VIEW LOCATION ♡
-        </a>
-
-    </section>
-
-
-    <!-- MOMENTS -->
-
-    <section class="section momentsSection">
-
-        <div class="smallHeading">
-            A FEW BEAUTIFUL MOMENTS
-        </div>
-
-        <div class="momentsTitle">
-            Our Moments
-        </div>
-
-        <div class="photoGrid">
-
-            <div class="photoCard">
-                <img
-                    src="couple1.jpeg.jpeg"
-                    alt="A beautiful moment"
-                    onerror="this.classList.add('photoMissing');"
-                >
-            </div>
-
-            <div class="photoCard">
-                <img
-                    src="couple2.jpeg.jpeg"
-                    alt="A beautiful moment"
-                    onerror="this.classList.add('photoMissing');"
-                >
-            </div>
-
-            <div class="photoCard">
-                <img
-                    src="couple3.jpeg.jpeg"
-                    alt="A beautiful moment"
-                    onerror="this.classList.add('photoMissing');"
-                >
+            <div class="timeLabel">
+                DAYS
             </div>
 
         </div>
 
-    </section>
 
+        <div class="timeBox">
 
-    <!-- CLOSING -->
+            <div
+                class="timeNumber"
+                id="hours">
 
-    <section class="section closing">
+                00
 
-        <div class="closingCurtain left"></div>
-        <div class="closingCurtain right"></div>
+            </div>
 
-        <div class="closingTitle">
-            See you soon ♡
+            <div class="timeLabel">
+                HOURS
+            </div>
+
         </div>
 
-        <div class="closingNames">
-            Sukhwinderpal &amp; Tarveen
+
+        <div class="timeBox">
+
+            <div
+                class="timeNumber"
+                id="minutes">
+
+                00
+
+            </div>
+
+            <div class="timeLabel">
+                MINUTES
+            </div>
+
         </div>
 
-    </section>
+
+        <div class="timeBox">
+
+            <div
+                class="timeNumber"
+                id="seconds">
+
+                00
+
+            </div>
+
+            <div class="timeLabel">
+                SECONDS
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     RING CEREMONY
+===================================================== -->
+
+<section class="section ringSection">
+
+
+    <div class="smallHeading">
+
+        A PROMISE TO FOREVER
+
+    </div>
+
+
+    <div class="ringIcon">
+
+        💍
+
+    </div>
+
+
+    <div class="ringTitle">
+
+        Ring Ceremony
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     VENUE
+===================================================== -->
+
+<section class="section venueSection">
+
+
+    <div class="smallHeading">
+
+        THE CELEBRATION
+
+    </div>
+
+
+    <div class="venueTitle">
+
+        The Venue
+
+    </div>
+
+
+    <div class="venueName">
+
+        The Grace BY: Symphony Banquet
+
+    </div>
+
+
+    <div class="address">
+
+        B-10, G.T. Karnal Road
+
+        <br>
+
+        Opp. Gujranwala Town
+
+        <br>
+
+        (Behind Shakti Nagar Tele Xchange)
+
+        <br>
+
+        New Delhi - 33
+
+    </div>
+
+
+    <a
+        class="locationButton"
+
+        href="https://www.google.com/maps/search/?api=1&query=The+Grace+BY+Symphony+Banquet+B-10+GT+Karnal+Road+New+Delhi"
+
+        target="_blank">
+
+        VIEW LOCATION ♡
+
+    </a>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     MOMENTS
+===================================================== -->
+
+<section class="section momentsSection">
+
+
+    <div class="smallHeading">
+
+        A FEW BEAUTIFUL MOMENTS
+
+    </div>
+
+
+    <div class="momentsTitle">
+
+        Our Moments
+
+    </div>
+
+
+    <div class="photoGrid">
+
+
+        <!-- PHOTO 1 -->
+
+        <div class="photoCard">
+
+            <img
+                src="couple1.jpeg.jpeg"
+                alt="A beautiful moment"
+                loading="lazy">
+
+        </div>
+
+
+        <!-- PHOTO 2 -->
+
+        <div class="photoCard">
+
+            <img
+                src="couple2.jpeg.jpeg"
+                alt="A beautiful moment"
+                loading="lazy">
+
+        </div>
+
+
+        <!-- PHOTO 3 -->
+
+        <div class="photoCard">
+
+            <img
+                src="couple3.jpeg.jpeg"
+                alt="A beautiful moment"
+                loading="lazy">
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CLOSING
+===================================================== -->
+
+<section class="section closing">
+
+
+    <div class="closingCurtain left"></div>
+
+    <div class="closingCurtain right"></div>
+
+
+    <div class="closingTitle">
+
+        See you soon ♡
+
+    </div>
+
+
+    <div class="closingNames">
+
+        Sukhwinderpal &amp; Tarveen
+
+    </div>
+
+
+</section>
+
 
 </main>
 
 
-<!-- ROSE PETALS -->
+
+<!-- =====================================================
+     ROSE PETALS CONTAINER
+===================================================== -->
 
 <div id="flowerRain"></div>
 
 
+
 <script>
 
-/* =========================
+
+/* =====================================================
    OPEN INVITATION
-========================= */
+===================================================== */
 
-const opening = document.getElementById("opening");
-const openButton = document.getElementById("openInvitation");
-const mainInvitation = document.getElementById("mainInvitation");
-
-openButton.addEventListener("click", function(){
-
-    opening.classList.add("opened");
-
-    setTimeout(function(){
-
-        opening.style.display = "none";
-        mainInvitation.style.display = "block";
-
-        window.scrollTo({
-            top:0,
-            behavior:"instant"
-        });
-
-    },2200);
-
-});
+const opening =
+    document.getElementById("opening");
 
 
-/* =========================
+const openButton =
+    document.getElementById("openInvitation");
+
+
+const mainInvitation =
+    document.getElementById("mainInvitation");
+
+
+openButton.addEventListener(
+    "click",
+    function(){
+
+        opening.classList.add("opened");
+
+
+        setTimeout(
+            function(){
+
+                opening.style.display =
+                    "none";
+
+                mainInvitation.style.display =
+                    "block";
+
+                window.scrollTo(
+                    0,
+                    0
+                );
+
+            },
+            2200
+        );
+
+    }
+);
+
+
+
+/* =====================================================
    SCRATCH CARD
-========================= */
+===================================================== */
 
-const canvas = document.getElementById("scratchCanvas");
-const wrapper = document.querySelector(".scratchWrapper");
-const ctx = canvas.getContext("2d", {
-    willReadFrequently:true
-});
+const canvas =
+    document.getElementById(
+        "scratchCanvas"
+    );
+
+
+const wrapper =
+    document.querySelector(
+        ".scratchWrapper"
+    );
+
+
+const ctx =
+    canvas.getContext(
+        "2d",
+        {
+            willReadFrequently:true
+        }
+    );
+
 
 let scratching = false;
+
 let revealed = false;
+
 let strokes = 0;
 
 
-/*
-   Resize canvas according to the actual
-   device pixel ratio so scratching remains
-   accurate on phones and laptops.
-*/
+
+/* =====================================================
+   RESIZE SCRATCH CARD
+===================================================== */
 
 function resizeScratchCanvas(){
 
-    const rect = wrapper.getBoundingClientRect();
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    canvas.width = Math.round(rect.width * dpr);
-    canvas.height = Math.round(rect.height * dpr);
+    const rect =
+        wrapper.getBoundingClientRect();
 
-    canvas.style.width = rect.width + "px";
-    canvas.style.height = rect.height + "px";
 
-    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const dpr =
+        Math.min(
+            window.devicePixelRatio || 1,
+            2
+        );
+
+
+    canvas.width =
+        Math.round(
+            rect.width * dpr
+        );
+
+
+    canvas.height =
+        Math.round(
+            rect.height * dpr
+        );
+
+
+    canvas.style.width =
+        rect.width + "px";
+
+
+    canvas.style.height =
+        rect.height + "px";
+
+
+    ctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
+
 
     drawScratchSurface();
 
 }
 
 
-/*
-   Draw the gold scratch coating.
-*/
+
+/* =====================================================
+   DRAW GOLD SCRATCH SURFACE
+===================================================== */
 
 function drawScratchSurface(){
 
-    const rect = wrapper.getBoundingClientRect();
 
-    ctx.globalCompositeOperation = "source-over";
+    const rect =
+        wrapper.getBoundingClientRect();
 
-    const gradient = ctx.createLinearGradient(
+
+    ctx.globalCompositeOperation =
+        "source-over";
+
+
+    const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            rect.width,
+            rect.height
+        );
+
+
+    gradient.addColorStop(
         0,
-        0,
-        rect.width,
-        rect.height
+        "#a87552"
     );
 
-    gradient.addColorStop(0,"#b88b62");
-    gradient.addColorStop(.5,"#e0bd91");
-    gradient.addColorStop(1,"#a87855");
 
-    ctx.fillStyle = gradient;
+    gradient.addColorStop(
+        .5,
+        "#e2c19a"
+    );
+
+
+    gradient.addColorStop(
+        1,
+        "#9b6a4d"
+    );
+
+
+    ctx.fillStyle =
+        gradient;
+
 
     ctx.fillRect(
         0,
@@ -989,15 +1988,65 @@ function drawScratchSurface(){
         rect.height
     );
 
-    /*
-       Decorative shine
-    */
 
-    ctx.fillStyle = "rgba(255,255,255,.15)";
+    /* subtle luxury shine */
 
-    ctx.font = "600 18px Cormorant Garamond";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
+    const shine =
+        ctx.createLinearGradient(
+            0,
+            0,
+            rect.width,
+            0
+        );
+
+
+    shine.addColorStop(
+        0,
+        "rgba(255,255,255,.05)"
+    );
+
+
+    shine.addColorStop(
+        .5,
+        "rgba(255,255,255,.25)"
+    );
+
+
+    shine.addColorStop(
+        1,
+        "rgba(255,255,255,.05)"
+    );
+
+
+    ctx.fillStyle =
+        shine;
+
+
+    ctx.fillRect(
+        0,
+        0,
+        rect.width,
+        rect.height
+    );
+
+
+    /* scratch instruction */
+
+    ctx.fillStyle =
+        "rgba(255,255,255,.80)";
+
+
+    ctx.font =
+        "600 18px Cormorant Garamond";
+
+
+    ctx.textAlign =
+        "center";
+
+
+    ctx.textBaseline =
+        "middle";
+
 
     ctx.fillText(
         "SCRATCH HERE ♡",
@@ -1005,71 +2054,79 @@ function drawScratchSurface(){
         rect.height / 2
     );
 
-    /*
-       Add a subtle pattern.
-    */
-
-    ctx.strokeStyle = "rgba(255,255,255,.10)";
-    ctx.lineWidth = 1;
-
-    for(let i=-rect.height;i<rect.width;i+=22){
-
-        ctx.beginPath();
-        ctx.moveTo(i,0);
-        ctx.lineTo(i+rect.height,rect.height);
-        ctx.stroke();
-
-    }
 
 }
 
 
-/*
-   Convert pointer coordinates to canvas coordinates.
-*/
+
+/* =====================================================
+   GET POINTER POSITION
+===================================================== */
 
 function getPointerPosition(event){
 
-    const rect = canvas.getBoundingClientRect();
+
+    const rect =
+        canvas.getBoundingClientRect();
+
 
     return {
-        x:event.clientX - rect.left,
-        y:event.clientY - rect.top
+
+        x:
+            event.clientX -
+            rect.left,
+
+        y:
+            event.clientY -
+            rect.top
+
     };
 
 }
 
 
-/*
-   Erase a circular area.
-*/
+
+/* =====================================================
+   ERASE SCRATCH AREA
+===================================================== */
 
 function eraseAt(x,y){
 
-    if(revealed) return;
 
-    ctx.globalCompositeOperation = "destination-out";
+    if(revealed){
+        return;
+    }
+
+
+    ctx.globalCompositeOperation =
+        "destination-out";
+
 
     ctx.beginPath();
+
 
     ctx.arc(
         x,
         y,
-        23,
+        24,
         0,
         Math.PI * 2
     );
 
+
     ctx.fill();
+
 
     strokes++;
 
+
     /*
-       Check scratched percentage every
-       few movements.
+       Check progress frequently.
     */
 
-    if(strokes % 12 === 0){
+    if(
+        strokes % 8 === 0
+    ){
 
         checkScratchProgress();
 
@@ -1078,56 +2135,96 @@ function eraseAt(x,y){
 }
 
 
-/*
-   Calculate how much of the scratch
-   surface has been removed.
-*/
+
+/* =====================================================
+   CHECK SCRATCHED AREA
+===================================================== */
 
 function checkScratchProgress(){
 
-    if(revealed) return;
 
-    const rect = wrapper.getBoundingClientRect();
+    if(revealed){
+        return;
+    }
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    const width = canvas.width;
-    const height = canvas.height;
+    const width =
+        canvas.width;
 
-    const imageData = ctx.getImageData(
-        0,
-        0,
-        width,
-        height
-    );
 
-    let transparentPixels = 0;
+    const height =
+        canvas.height;
+
+
+    const imageData =
+        ctx.getImageData(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+    let transparent =
+        0;
+
+
+    let checked =
+        0;
+
 
     /*
-       Check every 8th pixel for performance.
+       Check every 8 pixels.
     */
 
     for(
-        let i=3;
-        i<imageData.data.length;
-        i+=32
+        let y = 0;
+        y < height;
+        y += 8
     ){
 
-        if(imageData.data[i] < 80){
+        for(
+            let x = 0;
+            x < width;
+            x += 8
+        ){
 
-            transparentPixels++;
+            const index =
+                (
+                    y * width + x
+                ) * 4 + 3;
+
+
+            checked++;
+
+
+            if(
+                imageData.data[index]
+                < 80
+            ){
+
+                transparent++;
+
+            }
 
         }
 
     }
 
-    const totalPixels =
-        imageData.data.length / 32;
 
     const percentage =
-        transparentPixels / totalPixels;
+        transparent /
+        checked;
 
-    if(percentage > .30){
+
+    /*
+       Reveal after approximately
+       28% has been scratched.
+    */
+
+    if(
+        percentage >= .28
+    ){
 
         revealScratch();
 
@@ -1136,15 +2233,35 @@ function checkScratchProgress(){
 }
 
 
-/*
-   Reveal the card.
-*/
+
+/* =====================================================
+   REVEAL SCRATCH CARD
+===================================================== */
 
 function revealScratch(){
 
-    if(revealed) return;
+
+    if(revealed){
+        return;
+    }
+
 
     revealed = true;
+
+
+    /*
+       Completely clear canvas.
+    */
+
+    ctx.setTransform(
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+    );
+
 
     ctx.clearRect(
         0,
@@ -1153,57 +2270,126 @@ function revealScratch(){
         canvas.height
     );
 
-    canvas.style.pointerEvents = "none";
 
-    createRosePetals(75);
+    canvas.style.pointerEvents =
+        "none";
+
+
+    /*
+       Beautiful rose petal effect.
+    */
+
+    createRosePetals(85);
 
 }
 
 
-/*
-   Pointer Events work on both
-   touch screens and mouse devices.
-*/
 
-canvas.addEventListener("pointerdown",function(event){
+/* =====================================================
+   POINTER DOWN
+===================================================== */
 
-    if(revealed) return;
-
-    scratching = true;
-
-    canvas.setPointerCapture(event.pointerId);
-
-    const pos = getPointerPosition(event);
-
-    eraseAt(pos.x,pos.y);
-
-});
+canvas.addEventListener(
+    "pointerdown",
+    function(event){
 
 
-canvas.addEventListener("pointermove",function(event){
-
-    if(!scratching || revealed) return;
-
-    const pos = getPointerPosition(event);
-
-    eraseAt(pos.x,pos.y);
-
-});
+        if(revealed){
+            return;
+        }
 
 
-function stopScratching(event){
+        scratching = true;
 
-    scratching = false;
 
-    try{
+        try{
 
-        if(canvas.hasPointerCapture(event.pointerId)){
+            canvas.setPointerCapture(
+                event.pointerId
+            );
 
-            canvas.releasePointerCapture(event.pointerId);
+        }catch(error){}
+
+
+        const pos =
+            getPointerPosition(event);
+
+
+        eraseAt(
+            pos.x,
+            pos.y
+        );
+
+
+        event.preventDefault();
+
+    }
+);
+
+
+
+/* =====================================================
+   POINTER MOVE
+===================================================== */
+
+canvas.addEventListener(
+    "pointermove",
+    function(event){
+
+
+        if(
+            !scratching ||
+            revealed
+        ){
+
+            return;
 
         }
 
-    }catch(e){}
+
+        const pos =
+            getPointerPosition(event);
+
+
+        eraseAt(
+            pos.x,
+            pos.y
+        );
+
+
+        event.preventDefault();
+
+    }
+);
+
+
+
+/* =====================================================
+   STOP SCRATCHING
+===================================================== */
+
+function stopScratching(event){
+
+
+    scratching = false;
+
+
+    try{
+
+        if(
+            canvas.hasPointerCapture(
+                event.pointerId
+            )
+        ){
+
+            canvas.releasePointerCapture(
+                event.pointerId
+            );
+
+        }
+
+    }catch(error){}
+
 
 }
 
@@ -1213,21 +2399,27 @@ canvas.addEventListener(
     stopScratching
 );
 
+
 canvas.addEventListener(
     "pointercancel",
     stopScratching
 );
+
 
 canvas.addEventListener(
     "pointerleave",
     function(event){
 
         /*
-           Do not stop immediately when the pointer
-           temporarily leaves the canvas while dragging.
+           Keep scratching active if
+           pointer capture is active.
         */
 
-        if(!canvas.hasPointerCapture(event.pointerId)){
+        if(
+            !canvas.hasPointerCapture(
+                event.pointerId
+            )
+        ){
 
             scratching = false;
 
@@ -1237,35 +2429,39 @@ canvas.addEventListener(
 );
 
 
-/*
-   Prevent browser gestures while scratching.
-*/
+
+/* =====================================================
+   PREVENT RIGHT CLICK
+===================================================== */
 
 canvas.addEventListener(
     "contextmenu",
     function(event){
+
         event.preventDefault();
+
     }
 );
 
 
-/*
-   Set up scratch card.
-*/
+
+/* =====================================================
+   INITIALIZE SCRATCH CARD
+===================================================== */
 
 window.addEventListener(
     "load",
-    resizeScratchCanvas
+    function(){
+
+        resizeScratchCanvas();
+
+    }
 );
+
 
 window.addEventListener(
     "resize",
     function(){
-
-        /*
-           Only redraw if the card hasn't
-           already been revealed.
-        */
 
         if(!revealed){
 
@@ -1277,66 +2473,106 @@ window.addEventListener(
 );
 
 
-/* =========================
+
+/* =====================================================
    ROSE PETALS
-========================= */
+===================================================== */
 
 function createRosePetals(amount){
 
-    const container =
-        document.getElementById("flowerRain");
 
-    for(let i=0;i<amount;i++){
+    const container =
+        document.getElementById(
+            "flowerRain"
+        );
+
+
+    for(
+        let i = 0;
+        i < amount;
+        i++
+    ){
+
 
         const petal =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        petal.className = "petal";
+
+        petal.className =
+            "petal";
+
 
         const size =
-            8 + Math.random() * 12;
+            8 +
+            Math.random() * 12;
+
 
         petal.style.width =
             size + "px";
 
+
         petal.style.height =
             size * 1.5 + "px";
 
+
         petal.style.left =
-            Math.random() * 100 + "%";
+            Math.random() * 100 +
+            "%";
+
 
         petal.style.setProperty(
             "--sway",
-            (Math.random() * 240 - 120) + "px"
+            (
+                Math.random() * 240 -
+                120
+            ) + "px"
         );
 
+
         petal.style.animationDuration =
-            (4 + Math.random() * 5) + "s";
+            (
+                4 +
+                Math.random() * 5
+            ) + "s";
+
 
         petal.style.animationDelay =
-            (Math.random() * 2) + "s";
+            (
+                Math.random() * 2
+            ) + "s";
+
 
         petal.style.transform =
             "rotate(" +
             Math.random() * 360 +
             "deg)";
 
-        container.appendChild(petal);
 
-        setTimeout(function(){
+        container.appendChild(
+            petal
+        );
 
-            petal.remove();
 
-        },10000);
+        setTimeout(
+            function(){
+
+                petal.remove();
+
+            },
+            10000
+        );
 
     }
 
 }
 
 
-/* =========================
+
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 const targetDate =
     new Date(
@@ -1344,21 +2580,45 @@ const targetDate =
     ).getTime();
 
 
+
 function updateCountdown(){
+
 
     const now =
         new Date().getTime();
+
 
     const difference =
         targetDate - now;
 
 
-    if(difference <= 0){
+    if(
+        difference <= 0
+    ){
 
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
+        document.getElementById(
+            "days"
+        ).textContent =
+            "00";
+
+
+        document.getElementById(
+            "hours"
+        ).textContent =
+            "00";
+
+
+        document.getElementById(
+            "minutes"
+        ).textContent =
+            "00";
+
+
+        document.getElementById(
+            "seconds"
+        ).textContent =
+            "00";
+
 
         return;
 
@@ -1368,50 +2628,91 @@ function updateCountdown(){
     const days =
         Math.floor(
             difference /
-            (1000 * 60 * 60 * 24)
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
         );
+
 
     const hours =
         Math.floor(
-            (difference /
-            (1000 * 60 * 60)) % 24
+            (
+                difference /
+                (
+                    1000 *
+                    60 *
+                    60
+                )
+            ) % 24
         );
+
 
     const minutes =
         Math.floor(
-            (difference /
-            (1000 * 60)) % 60
+            (
+                difference /
+                (
+                    1000 *
+                    60
+                )
+            ) % 60
         );
+
 
     const seconds =
         Math.floor(
-            (difference / 1000) % 60
+            (
+                difference /
+                1000
+            ) % 60
         );
 
 
-    document.getElementById("days").textContent =
-        String(days).padStart(2,"0");
+    document.getElementById(
+        "days"
+    ).textContent =
+        String(days)
+        .padStart(2,"0");
 
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2,"0");
 
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2,"0");
+    document.getElementById(
+        "hours"
+    ).textContent =
+        String(hours)
+        .padStart(2,"0");
 
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2,"0");
+
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        String(minutes)
+        .padStart(2,"0");
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        String(seconds)
+        .padStart(2,"0");
 
 }
 
 
 updateCountdown();
 
+
 setInterval(
     updateCountdown,
     1000
 );
 
+
 </script>
 
+
 </body>
+
 </html>
