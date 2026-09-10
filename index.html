@@ -6,410 +6,561 @@
 <title>Sukhwinderpal & Tarveen</title>
 
 <style>
-* {
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+*{box-sizing:border-box}
+
+html,body{
+margin:0;
+padding:0;
+width:100%;
+font-family:"Cormorant Garamond",Georgia,serif;
+background:#17090c;
+color:#fff;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
-    font-family: Georgia, serif;
-    background: #f8f3ee;
-    color: #3d3030;
+button{font-family:inherit}
+
+/* ================= OPENING CURTAINS ================= */
+
+#curtainScreen{
+position:fixed;
+inset:0;
+z-index:9999;
+background:#120609;
+overflow:hidden;
 }
 
-/* ================= CURTAIN ================= */
-
-#curtainScreen {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: #24191b;
-    overflow: hidden;
+.curtain{
+position:absolute;
+top:-3%;
+width:55%;
+height:106%;
+z-index:3;
+background:
+radial-gradient(ellipse at 50% 0%,rgba(255,190,160,.18),transparent 28%),
+repeating-linear-gradient(
+90deg,
+#26070c 0px,
+#4b1118 13px,
+#781e2b 27px,
+#3a0b12 42px,
+#8b2b38 55px,
+#430d15 68px,
+#25070b 82px
+);
+box-shadow:
+inset 0 0 80px rgba(0,0,0,.8),
+0 0 35px rgba(0,0,0,.55);
+transition:transform 2.1s cubic-bezier(.77,0,.18,1);
 }
 
-.curtain {
-    position: absolute;
-    top: 0;
-    width: 52%;
-    height: 100%;
-    background:
-        repeating-linear-gradient(
-            90deg,
-            #3b2025 0px,
-            #63343b 18px,
-            #8b5660 34px,
-            #522a31 50px,
-            #321b20 70px
-        );
-    box-shadow: inset 0 0 50px rgba(0,0,0,.45);
-    transition: transform 2s cubic-bezier(.77,0,.18,1);
+.leftCurtain{
+left:-3%;
+transform-origin:left center;
+border-radius:0 45% 35% 0;
 }
 
-.leftCurtain {
-    left: 0;
-    transform-origin: left center;
+.rightCurtain{
+right:-3%;
+transform-origin:right center;
+border-radius:45% 0 0 35%;
 }
 
-.rightCurtain {
-    right: 0;
-    transform-origin: right center;
+#curtainScreen.open .leftCurtain{
+transform:translateX(-105%);
 }
 
-#curtainScreen.open .leftCurtain {
-    transform: translateX(-105%);
+#curtainScreen.open .rightCurtain{
+transform:translateX(105%);
 }
 
-#curtainScreen.open .rightCurtain {
-    transform: translateX(105%);
+.goldLine{
+position:absolute;
+z-index:8;
+top:0;
+left:50%;
+width:4px;
+height:100%;
+background:linear-gradient(
+to bottom,
+transparent,
+#c9a35f,
+#fff1bd,
+#c9a35f,
+transparent
+);
+box-shadow:0 0 15px rgba(255,215,130,.5);
+transition:opacity 1s;
 }
 
-.goldLine {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        #d7b77c,
-        #fff1c7,
-        #d7b77c,
-        transparent
-    );
-    z-index: 5;
-    transition: opacity 1s;
+#curtainScreen.open .goldLine{
+opacity:0;
 }
 
-#curtainScreen.open .goldLine {
-    opacity: 0;
+/* FLOWERS ON CURTAIN */
+
+.flower{
+position:absolute;
+z-index:8;
+font-size:34px;
+line-height:1;
+text-shadow:0 0 15px rgba(255,150,100,.6);
 }
 
-.openContent {
-    position: absolute;
-    z-index: 10;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    text-align: center;
-    color: white;
-    width: 90%;
+.f1{top:25px;left:25px}
+.f2{top:25px;right:25px}
+.f3{bottom:25px;left:25px}
+.f4{bottom:25px;right:25px}
+
+.f1,.f2,.f3,.f4{color:#c63d4d}
+
+.flower small{
+color:#e8b4a5;
+font-size:23px;
 }
 
-.smallTitle {
-    letter-spacing: 6px;
-    font-size: 12px;
-    margin-bottom: 22px;
+.openContent{
+position:absolute;
+z-index:10;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:90%;
+text-align:center;
 }
 
-.initials {
-    font-size: 62px;
-    font-family: "Brush Script MT", cursive;
-    font-style: italic;
-    margin-bottom: 18px;
+.smallTitle{
+font-size:12px;
+letter-spacing:6px;
+margin-bottom:20px;
 }
 
-.tapText {
-    letter-spacing: 4px;
-    font-size: 13px;
-    margin-bottom: 25px;
+.initials{
+font-family:"Great Vibes",cursive;
+font-size:75px;
+line-height:1;
+margin-bottom:20px;
+text-shadow:0 2px 20px #000;
 }
 
-.openButton {
-    border: 1px solid rgba(255,255,255,.75);
-    background: rgba(255,255,255,.12);
-    color: white;
-    padding: 15px 35px;
-    border-radius: 40px;
-    font-size: 13px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    backdrop-filter: blur(5px);
+.tapText{
+font-size:14px;
+letter-spacing:5px;
+margin-bottom:25px;
 }
 
-.openButton:hover {
-    background: rgba(255,255,255,.25);
+.openButton{
+padding:15px 35px;
+border:1px solid rgba(255,240,210,.9);
+border-radius:40px;
+background:rgba(255,255,255,.08);
+color:white;
+letter-spacing:2px;
+cursor:pointer;
+font-size:13px;
+backdrop-filter:blur(5px);
 }
 
-/* ================= MAIN INVITATION ================= */
+/* ================= MAIN ================= */
 
-#mainInvitation {
-    opacity: 0;
-    transition: opacity 2s;
+#mainInvitation{
+opacity:0;
+transition:opacity 1.5s;
 }
 
-#mainInvitation.visible {
-    opacity: 1;
+#mainInvitation.visible{
+opacity:1;
 }
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 20px;
-    background:
-        radial-gradient(circle at top, #fffdf9, transparent 55%),
-        #f8f3ee;
+.section{
+position:relative;
+overflow:hidden;
+padding:85px 20px;
+text-align:center;
 }
 
-.heroInner {
-    max-width: 750px;
+.dark{
+background:
+radial-gradient(circle at top,#641722 0,#27090e 45%,#130608 100%);
 }
 
-.overline {
-    letter-spacing: 5px;
-    font-size: 11px;
-    color: #9a7b68;
-    margin-bottom: 25px;
+.light{
+color:#42151b;
+background:
+radial-gradient(circle at top,#fffaf5,#f1d9cf 70%,#e7c7ba);
 }
 
-.inviteText {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #75645b;
+.inner{
+max-width:850px;
+margin:auto;
+position:relative;
+z-index:2;
 }
 
-.names {
-    font-family: "Brush Script MT", cursive;
-    font-size: clamp(48px, 10vw, 90px);
-    font-style: italic;
-    font-weight: normal;
-    margin: 30px 0 10px;
+.overline,.sectionTitle{
+font-size:11px;
+letter-spacing:5px;
+text-transform:uppercase;
 }
 
-.amp {
-    font-family: Georgia, serif;
-    font-size: 25px;
-    color: #ad9270;
+.overline{
+color:#d6b48d;
+margin-bottom:25px;
 }
 
-.date {
-    margin-top: 35px;
-    font-size: 18px;
-    letter-spacing: 4px;
+.inviteText{
+font-size:20px;
+line-height:1.7;
+color:#e7d7cc;
 }
 
-.venue {
-    margin-top: 12px;
-    font-size: 15px;
-    color: #76665d;
+.names{
+font-family:"Great Vibes",cursive;
+font-size:clamp(60px,11vw,105px);
+line-height:1.05;
+margin:20px 0 3px;
+font-weight:400;
+color:#fff4eb;
 }
 
-/* ================= HEARTBEAT ================= */
-
-.heartArea {
-    margin: 55px auto 20px;
+.amp{
+font-size:30px;
+color:#d2ae78;
+margin:10px;
 }
 
-.heart {
-    font-size: 45px;
-    display: inline-block;
-    animation: heartbeat 1.2s infinite;
+.dateMain{
+font-size:20px;
+letter-spacing:5px;
+margin-top:28px;
 }
 
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    15% { transform: scale(1.25); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.18); }
-    60% { transform: scale(1); }
+.time{
+font-size:17px;
+margin-top:12px;
+color:#d8c2b5;
 }
 
-.heartbeatText {
-    margin-top: 12px;
-    font-size: 12px;
-    letter-spacing: 3px;
-    color: #9a7b68;
+/* ================= FLOWER BORDERS ================= */
+
+.floral{
+position:absolute;
+left:0;
+right:0;
+height:70px;
+display:flex;
+justify-content:space-around;
+align-items:center;
+font-size:29px;
+color:#bd5360;
+opacity:.9;
+}
+
+.top{top:0}
+.bottom{bottom:0}
+
+.floral span:nth-child(2n){
+color:#e7b5a5;
+font-size:22px;
+}
+
+.floral span:nth-child(3n){
+color:#d3a55d;
+font-size:18px;
+}
+
+/* ================= HEART ================= */
+
+.heartArea{
+margin:55px auto 25px;
+}
+
+.heart{
+display:inline-block;
+font-size:58px;
+color:#df8e99;
+animation:heartbeat 1.15s infinite;
+text-shadow:0 0 20px rgba(255,100,130,.5);
+}
+
+@keyframes heartbeat{
+0%,100%{transform:scale(1)}
+15%{transform:scale(1.3)}
+30%{transform:scale(1)}
+45%{transform:scale(1.18)}
+60%{transform:scale(1)}
+}
+
+.heartbeatText{
+margin-top:12px;
+font-size:13px;
+letter-spacing:3px;
+color:#d8b69a;
 }
 
 /* ================= COUNTDOWN ================= */
 
-.countdown {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin: 35px auto;
+.countdown{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+margin:40px auto 10px;
 }
 
-.timeBox {
-    min-width: 75px;
-    padding: 15px 10px;
-    border: 1px solid #d8c8ba;
-    background: rgba(255,255,255,.6);
+.timeBox{
+min-width:82px;
+padding:16px 10px;
+border:1px solid rgba(214,180,141,.55);
+background:rgba(255,255,255,.06);
 }
 
-.timeNumber {
-    font-size: 25px;
+.timeNumber{
+font-size:31px;
 }
 
-.timeLabel {
-    font-size: 9px;
-    letter-spacing: 2px;
-    margin-top: 5px;
-    color: #92796a;
+.timeLabel{
+font-size:9px;
+letter-spacing:2px;
+color:#c9aa91;
+margin-top:5px;
 }
 
-/* ================= SCRATCH REVEAL ================= */
+/* ================= SCRATCH ================= */
 
-.scratchSection {
-    padding: 80px 20px;
-    text-align: center;
-    background: #efe5dc;
+.scratchSection{
+color:#43151b;
+background:linear-gradient(#f6e5dc,#ead0c4);
 }
 
-.sectionTitle {
-    letter-spacing: 4px;
-    font-size: 13px;
-    color: #917363;
-    margin-bottom: 25px;
+.scratchBox{
+position:relative;
+width:min(92vw,460px);
+height:280px;
+margin:25px auto 0;
+overflow:hidden;
+border:1px solid #c59a82;
+border-radius:8px;
+background:#fff8f1;
+box-shadow:0 18px 55px rgba(50,15,20,.22);
 }
 
-.scratchBox {
-    position: relative;
-    width: min(90vw, 420px);
-    height: 230px;
-    margin: auto;
-    border-radius: 15px;
-    overflow: hidden;
-    background: #fffaf5;
-    box-shadow: 0 15px 45px rgba(65,40,30,.12);
+.revealMessage{
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:25px;
+background:
+radial-gradient(circle at center,#fffaf6,#f3d9cf);
 }
 
-.revealMessage {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
+.revealMessage .mini{
+letter-spacing:4px;
+font-size:11px;
+color:#98705f;
 }
 
-.revealMessage h2 {
-    font-family: "Brush Script MT", cursive;
-    font-size: 38px;
-    font-weight: normal;
-    margin: 5px;
+.revealMessage h2{
+font-family:"Great Vibes",cursive;
+font-size:52px;
+font-weight:400;
+margin:12px 0;
+color:#741f2b;
 }
 
-.revealMessage p {
-    color: #75645b;
+.revealedDate{
+font-size:25px;
+letter-spacing:3px;
+color:#4e1820;
 }
 
-#scratchCanvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    cursor: crosshair;
+.revealMessage p{
+font-size:15px;
+margin:8px;
+color:#76564d;
 }
 
-.scratchHint {
-    margin-top: 18px;
-    font-size: 12px;
-    color: #8b7669;
-    letter-spacing: 1px;
+#scratchCanvas{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+cursor:crosshair;
+touch-action:none;
+}
+
+.scratchHint{
+margin-top:20px;
+font-size:13px;
+letter-spacing:2px;
+color:#795348;
 }
 
 /* ================= DETAILS ================= */
 
-.details {
-    padding: 80px 20px;
-    text-align: center;
-    background: #faf7f3;
+.details{
+background:
+radial-gradient(circle at top,#59151f,#22080d 65%,#120507);
 }
 
-.detailCard {
-    max-width: 550px;
-    margin: auto;
-    padding: 35px;
-    border-top: 1px solid #d8c8ba;
-    border-bottom: 1px solid #d8c8ba;
+.detailCard{
+max-width:720px;
+margin:auto;
+padding:45px 25px;
+border:1px solid rgba(205,167,119,.45);
+background:rgba(255,255,255,.045);
 }
 
-.detailCard h2 {
-    font-family: "Brush Script MT", cursive;
-    font-size: 40px;
-    font-weight: normal;
+.detailCard h2{
+font-family:"Great Vibes",cursive;
+font-size:58px;
+font-weight:400;
+margin:10px 0 25px;
 }
 
-.detailCard p {
-    line-height: 1.8;
-    color: #75645b;
+.detailCard p{
+font-size:18px;
+line-height:1.75;
+color:#eadbd0;
 }
 
-.footer {
-    padding: 45px 20px;
-    text-align: center;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: #92796a;
+.location{
+margin:28px auto;
+padding:22px;
+border-top:1px solid rgba(205,167,119,.4);
+border-bottom:1px solid rgba(205,167,119,.4);
+max-width:650px;
 }
 
-/* MOBILE */
+.location strong{
+display:block;
+font-size:21px;
+color:#fff1e5;
+margin-bottom:10px;
+}
 
-@media(max-width:600px) {
+.location span{
+font-size:17px;
+color:#dbc5b7;
+line-height:1.7;
+}
 
-    .initials {
-        font-size: 50px;
-    }
+/* ================= STORY ================= */
 
-    .smallTitle {
-        letter-spacing: 4px;
-    }
+.story{
+background:
+linear-gradient(rgba(30,5,10,.78),rgba(30,5,10,.9)),
+radial-gradient(circle at center,#6c1b28,#16070a);
+}
 
-    .inviteText {
-        font-size: 16px;
-    }
+.story h2{
+font-family:"Great Vibes",cursive;
+font-size:64px;
+font-weight:400;
+margin:15px 0;
+}
 
-    .date {
-        letter-spacing: 2px;
-    }
+.story p{
+font-size:20px;
+line-height:1.8;
+color:#e9d7cc;
+}
 
-    .timeBox {
-        min-width: 68px;
-    }
+.footer{
+padding:35px 20px;
+text-align:center;
+background:#0d0406;
+color:#caa983;
+letter-spacing:3px;
+font-size:11px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+.smallTitle{
+letter-spacing:4px;
+font-size:10px;
+}
+
+.initials{
+font-size:60px;
+}
+
+.names{
+font-size:63px;
+}
+
+.inviteText{
+font-size:18px;
+}
+
+.dateMain{
+font-size:16px;
+letter-spacing:3px;
+}
+
+.timeBox{
+min-width:68px;
+padding:13px 8px;
+}
+
+.timeNumber{
+font-size:25px;
+}
+
+.scratchBox{
+height:250px;
+}
+
+.story h2{
+font-size:52px;
+}
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= CURTAIN ================= -->
+<!-- ================= OPENING CURTAIN ================= -->
 
 <div id="curtainScreen">
 
-    <div class="curtain leftCurtain"></div>
-    <div class="curtain rightCurtain"></div>
+<div class="curtain leftCurtain"></div>
+<div class="curtain rightCurtain"></div>
 
-    <div class="goldLine"></div>
+<div class="goldLine"></div>
 
-    <div class="openContent">
+<div class="flower f1">✿<small>❀</small></div>
+<div class="flower f2">✿<small>❀</small></div>
+<div class="flower f3">✿<small>❀</small></div>
+<div class="flower f4">✿<small>❀</small></div>
 
-        <div class="smallTitle">
-            A BEAUTIFUL BEGINNING AWAITS
-        </div>
+<div class="openContent">
 
-        <div class="initials">
-            S & T
-        </div>
+<div class="smallTitle">
+A BEAUTIFUL BEGINNING AWAITS
+</div>
 
-        <div class="tapText">
-            TAP TO OPEN
-        </div>
+<div class="initials">
+S & T
+</div>
 
-        <button class="openButton" onclick="openInvitation()">
-            OPEN INVITATION ♡
-        </button>
+<div class="tapText">
+TAP TO OPEN
+</div>
 
-    </div>
+<button class="openButton" onclick="openInvitation()">
+OPEN INVITATION ♡
+</button>
 
+</div>
 </div>
 
 
@@ -417,45 +568,64 @@ html, body {
 
 <div id="mainInvitation">
 
-<section class="hero">
 
-<div class="heroInner">
+<!-- HERO -->
+
+<section class="section dark">
+
+<div class="floral top">
+<span>✿</span>
+<span>❀</span>
+<span>✦</span>
+<span>✿</span>
+<span>❀</span>
+<span>✦</span>
+<span>✿</span>
+</div>
+
+<div class="inner">
 
 <div class="overline">
-    TOGETHER WITH OUR FAMILIES
+TOGETHER WITH OUR FAMILIES
 </div>
 
 <p class="inviteText">
-    We invite you to join us as we celebrate
-    the beginning of a beautiful new chapter.
+We invite you to join us as we celebrate<br>
+the beginning of a beautiful new chapter.
 </p>
 
 <div class="names">
-    Sukhwinderpal
+Sukhwinderpal
 </div>
 
 <div class="amp">
-    &
+&
 </div>
 
 <div class="names">
-    Tarveen Kaur
+Tarveen Kaur
 </div>
+
 
 <div class="heartArea">
-    <div class="heart">♡</div>
-    <div class="heartbeatText">
-        TWO HEARTS · ONE BEAUTIFUL BEGINNING
-    </div>
+
+<div class="heart">
+♡
 </div>
 
-<div class="date">
-    19 · SEPTEMBER · 2026
+<div class="heartbeatText">
+COUNTING EVERY HEARTBEAT ♡
 </div>
 
-<div class="venue">
-    7:00 PM<br>
-    The Grace by Symphony, Delhi
+</div>
+
+
+<div class="dateMain">
+19 · SEPTEMBER · 2026
+</div>
+
+<div class="time">
+7:00 PM
 </div>
 
 
@@ -464,54 +634,84 @@ html, body {
 <div class="countdown">
 
 <div class="timeBox">
-    <div class="timeNumber" id="days">00</div>
-    <div class="timeLabel">DAYS</div>
+<div class="timeNumber" id="days">00</div>
+<div class="timeLabel">DAYS</div>
 </div>
 
 <div class="timeBox">
-    <div class="timeNumber" id="hours">00</div>
-    <div class="timeLabel">HOURS</div>
+<div class="timeNumber" id="hours">00</div>
+<div class="timeLabel">HOURS</div>
 </div>
 
 <div class="timeBox">
-    <div class="timeNumber" id="minutes">00</div>
-    <div class="timeLabel">MINUTES</div>
+<div class="timeNumber" id="minutes">00</div>
+<div class="timeLabel">MINUTES</div>
 </div>
 
 <div class="timeBox">
-    <div class="timeNumber" id="seconds">00</div>
-    <div class="timeLabel">SECONDS</div>
+<div class="timeNumber" id="seconds">00</div>
+<div class="timeLabel">SECONDS</div>
 </div>
 
 </div>
 
 </div>
+
+<div class="floral bottom">
+<span>❀</span>
+<span>✦</span>
+<span>✿</span>
+<span>❀</span>
+<span>✦</span>
+<span>✿</span>
+<span>❀</span>
+</div>
+
 </section>
 
 
-<!-- ================= SCRATCH ================= -->
+<!-- ================= SCRATCH TO REVEAL ================= -->
 
-<section class="scratchSection">
+<section class="section scratchSection">
+
+<div class="floral top">
+<span>✿</span>
+<span>❀</span>
+<span>✦</span>
+<span>❀</span>
+<span>✿</span>
+</div>
+
+<div class="inner">
 
 <div class="sectionTitle">
-    A LITTLE SURPRISE
+A LITTLE SURPRISE
 </div>
+
 
 <div class="scratchBox">
 
 <div class="revealMessage">
 
-    <div>✦</div>
+<div class="mini">
+YOU'RE INVITED ♡
+</div>
 
-    <h2>
-        We can't wait<br>
-        to celebrate with you
-    </h2>
+<h2>
+Save the Date
+</h2>
 
-    <p>
-        Scratch gently to reveal
-        a little message.
-    </p>
+<div class="revealedDate">
+19 September 2026
+</div>
+
+<p>
+Saturday · 7:00 PM
+</p>
+
+<p>
+Our special day awaits you ♡
+</p>
 
 </div>
 
@@ -519,51 +719,135 @@ html, body {
 
 </div>
 
+
 <div class="scratchHint">
-    ✦ SCRATCH THE VEIL TO REVEAL ✦
+✦ SCRATCH THE VEIL TO REVEAL ✦
+</div>
+
+</div>
+
+
+<div class="floral bottom">
+<span>❀</span>
+<span>✦</span>
+<span>✿</span>
+<span>❀</span>
+<span>✦</span>
 </div>
 
 </section>
 
 
-<!-- ================= DETAILS ================= -->
+<!-- ================= LOCATION ================= -->
 
-<section class="details">
+<section class="section details">
 
-<div class="detailCard">
+<div class="floral top">
+<span>✿</span>
+<span>❀</span>
+<span>✦</span>
+<span>❀</span>
+<span>✿</span>
+</div>
+
+<div class="inner detailCard">
 
 <div class="sectionTitle">
-    SAVE THE DATE
+THE CELEBRATION
 </div>
 
 <h2>
-    Sukhwinderpal & Tarveen
+Our Special Day
 </h2>
 
 <p>
-    19 September 2026<br>
-    7:00 PM
+<strong>19 September 2026</strong><br>
+Saturday · 7:00 PM
 </p>
+
+
+<div class="location">
+
+<strong>
+The Grace BY: Symphony Banquet
+</strong>
+
+<span>
+
+B-10, G.T. Karnal Road<br>
+
+Opp. Gujranwala Town<br>
+
+(Behind Shakti Nagar Tele Xchange)<br>
+
+New Delhi - 33
+
+</span>
+
+</div>
+
 
 <p>
-    The Grace by Symphony<br>
-    Delhi
+With love, joy and the blessings of our families,<br>
+we look forward to celebrating this beautiful<br>
+beginning with you.
 </p>
+
+</div>
+
+</section>
+
+
+<!-- ================= OUR STORY ================= -->
+
+<section class="section story">
+
+<div class="floral top">
+<span>✿</span>
+<span>❀</span>
+<span>✦</span>
+<span>❀</span>
+<span>✿</span>
+</div>
+
+<div class="inner">
+
+<div class="sectionTitle">
+OUR STORY
+</div>
+
+<h2>
+Moments call us here
+</h2>
 
 <p>
-    With love, joy and the blessings
-    of our families, we look forward
-    to celebrating this beautiful
-    beginning with you.
+Two hearts, one beautiful beginning,<br>
+and a day we cannot wait to share with you.
 </p>
 
+<p style="
+font-family:'Great Vibes',cursive;
+font-size:35px;
+color:#e8c7b1;
+">
+See you soon ♡
+</p>
+
+</div>
+
+<div class="floral bottom">
+<span>❀</span>
+<span>✦</span>
+<span>✿</span>
+<span>❀</span>
+<span>✦</span>
 </div>
 
 </section>
 
 
 <div class="footer">
-    WITH LOVE · S & T
+WITH LOVE · SUKHWINDERPAL & TARVEEN
 </div>
 
 </div>
@@ -573,173 +857,335 @@ html, body {
 
 /* ================= OPEN CURTAIN ================= */
 
-function openInvitation() {
+function openInvitation(){
 
-    const curtain = document.getElementById("curtainScreen");
-    const invitation = document.getElementById("mainInvitation");
+const curtain =
+document.getElementById("curtainScreen");
 
-    curtain.classList.add("open");
+const invitation =
+document.getElementById("mainInvitation");
 
-    setTimeout(function() {
-        invitation.classList.add("visible");
-    }, 900);
+curtain.classList.add("open");
 
-    setTimeout(function() {
-        curtain.style.display = "none";
-    }, 2200);
+setTimeout(function(){
+invitation.classList.add("visible");
+},800);
+
+setTimeout(function(){
+curtain.style.display="none";
+},2200);
+
 }
 
 
 /* ================= COUNTDOWN ================= */
 
+/* 19 September 2026 - 7:00 PM IST */
+
 const targetDate =
-    new Date("September 19, 2026 19:00:00").getTime();
+new Date("2026-09-19T19:00:00+05:30").getTime();
 
-function updateCountdown() {
 
-    const now = new Date().getTime();
-    const difference = targetDate - now;
+function updateCountdown(){
 
-    if (difference <= 0) {
+const now = Date.now();
 
-        document.getElementById("days").innerHTML = "00";
-        document.getElementById("hours").innerHTML = "00";
-        document.getElementById("minutes").innerHTML = "00";
-        document.getElementById("seconds").innerHTML = "00";
+const difference =
+targetDate - now;
 
-        return;
-    }
 
-    const days =
-        Math.floor(difference / (1000 * 60 * 60 * 24));
+if(difference <= 0){
 
-    const hours =
-        Math.floor(
-            (difference % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
-        );
+document.getElementById("days").textContent="00";
+document.getElementById("hours").textContent="00";
+document.getElementById("minutes").textContent="00";
+document.getElementById("seconds").textContent="00";
 
-    const minutes =
-        Math.floor(
-            (difference % (1000 * 60 * 60))
-            / (1000 * 60)
-        );
+return;
 
-    const seconds =
-        Math.floor(
-            (difference % (1000 * 60))
-            / 1000
-        );
+}
 
-    document.getElementById("days").innerHTML =
-        String(days).padStart(2,"0");
 
-    document.getElementById("hours").innerHTML =
-        String(hours).padStart(2,"0");
+const days =
+Math.floor(
+difference /
+(1000*60*60*24)
+);
 
-    document.getElementById("minutes").innerHTML =
-        String(minutes).padStart(2,"0");
 
-    document.getElementById("seconds").innerHTML =
-        String(seconds).padStart(2,"0");
+const hours =
+Math.floor(
+(difference %
+(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+
+const minutes =
+Math.floor(
+(difference %
+(1000*60*60))
+/
+(1000*60)
+);
+
+
+const seconds =
+Math.floor(
+(difference %
+(1000*60))
+/
+1000
+);
+
+
+document.getElementById("days").textContent =
+String(days).padStart(2,"0");
+
+document.getElementById("hours").textContent =
+String(hours).padStart(2,"0");
+
+document.getElementById("minutes").textContent =
+String(minutes).padStart(2,"0");
+
+document.getElementById("seconds").textContent =
+String(seconds).padStart(2,"0");
+
 }
 
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
+setInterval(updateCountdown,1000);
 
 
 /* ================= SCRATCH CARD ================= */
 
-const canvas = document.getElementById("scratchCanvas");
-const ctx = canvas.getContext("2d");
+const canvas =
+document.getElementById("scratchCanvas");
 
-function resizeCanvas() {
+const ctx =
+canvas.getContext("2d");
 
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+let scratching=false;
 
-    ctx.globalCompositeOperation = "source-over";
 
-    const gradient = ctx.createLinearGradient(
-        0, 0,
-        canvas.width,
-        canvas.height
-    );
+function resizeCanvas(){
 
-    gradient.addColorStop(0, "#b99a7d");
-    gradient.addColorStop(.5, "#e0c9ae");
-    gradient.addColorStop(1, "#a8866d");
+const rect =
+canvas.getBoundingClientRect();
 
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0,0,canvas.width,canvas.height);
+const ratio =
+window.devicePixelRatio || 1;
 
-    ctx.fillStyle = "rgba(255,255,255,.25)";
-    ctx.font = "18px Georgia";
-    ctx.textAlign = "center";
-    ctx.fillText(
-        "SCRATCH TO REVEAL ♡",
-        canvas.width/2,
-        canvas.height/2
-    );
+canvas.width =
+rect.width * ratio;
+
+canvas.height =
+rect.height * ratio;
+
+ctx.setTransform(
+ratio,0,0,ratio,0,0
+);
+
+
+const w=rect.width;
+const h=rect.height;
+
+
+/* Scratch cover */
+
+const gradient =
+ctx.createLinearGradient(
+0,0,w,h
+);
+
+gradient.addColorStop(
+0,
+"#7e1e2d"
+);
+
+gradient.addColorStop(
+0.3,
+"#b85c63"
+);
+
+gradient.addColorStop(
+0.55,
+"#d69b8d"
+);
+
+gradient.addColorStop(
+1,
+"#711827"
+);
+
+
+ctx.globalCompositeOperation =
+"source-over";
+
+ctx.fillStyle=gradient;
+
+ctx.fillRect(
+0,0,w,h
+);
+
+
+/* Text on scratch layer */
+
+ctx.textAlign="center";
+
+ctx.font=
+"600 18px Georgia";
+
+ctx.fillStyle=
+"rgba(255,246,232,.95)";
+
+ctx.fillText(
+"SCRATCH TO REVEAL ♡",
+w/2,
+h/2-10
+);
+
+
+ctx.font=
+"13px Georgia";
+
+ctx.fillStyle=
+"rgba(255,246,232,.8)";
+
+ctx.fillText(
+"19 SEPTEMBER 2026",
+w/2,
+h/2+20
+);
+
 }
+
 
 resizeCanvas();
 
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener(
+"resize",
+resizeCanvas
+);
 
-let scratching = false;
 
-function scratch(e) {
+function getPoint(e){
 
-    if (!scratching) return;
+const rect =
+canvas.getBoundingClientRect();
 
-    const rect = canvas.getBoundingClientRect();
+if(e.touches){
 
-    let x, y;
+return {
 
-    if (e.touches) {
-        x = e.touches[0].clientX - rect.left;
-        y = e.touches[0].clientY - rect.top;
-    } else {
-        x = e.clientX - rect.left;
-        y = e.clientY - rect.top;
-    }
+x:e.touches[0].clientX -
+rect.left,
 
-    ctx.globalCompositeOperation = "destination-out";
+y:e.touches[0].clientY -
+rect.top
 
-    ctx.beginPath();
-    ctx.arc(x, y, 28, 0, Math.PI * 2);
-    ctx.fill();
+};
+
 }
 
-canvas.addEventListener("mousedown", function() {
-    scratching = true;
-});
+return {
 
-canvas.addEventListener("mouseup", function() {
-    scratching = false;
-});
+x:e.clientX -
+rect.left,
 
-canvas.addEventListener("mouseleave", function() {
-    scratching = false;
-});
+y:e.clientY -
+rect.top
 
-canvas.addEventListener("mousemove", scratch);
+};
 
-canvas.addEventListener("touchstart", function(e) {
-    scratching = true;
-    scratch(e);
-});
+}
 
-canvas.addEventListener("touchmove", function(e) {
-    e.preventDefault();
-    scratch(e);
-});
 
-canvas.addEventListener("touchend", function() {
-    scratching = false;
-});
+function scratch(e){
+
+if(!scratching)return;
+
+e.preventDefault();
+
+const p =
+getPoint(e);
+
+ctx.globalCompositeOperation =
+"destination-out";
+
+ctx.beginPath();
+
+ctx.arc(
+p.x,
+p.y,
+30,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+}
+
+
+/* Mouse */
+
+canvas.addEventListener(
+"mousedown",
+function(){
+scratching=true;
+}
+);
+
+canvas.addEventListener(
+"mousemove",
+scratch
+);
+
+canvas.addEventListener(
+"mouseup",
+function(){
+scratching=false;
+}
+);
+
+canvas.addEventListener(
+"mouseleave",
+function(){
+scratching=false;
+}
+);
+
+
+/* Mobile */
+
+canvas.addEventListener(
+"touchstart",
+function(e){
+
+scratching=true;
+scratch(e);
+
+},
+{passive:false}
+);
+
+
+canvas.addEventListener(
+"touchmove",
+scratch,
+{passive:false}
+);
+
+
+canvas.addEventListener(
+"touchend",
+function(){
+scratching=false;
+}
+);
 
 </script>
 
