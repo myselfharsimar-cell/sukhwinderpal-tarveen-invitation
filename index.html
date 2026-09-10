@@ -6,8 +6,6 @@
 <title>Sukhwinderpal & Tarveen</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
-
 * {
     box-sizing: border-box;
 }
@@ -17,277 +15,344 @@ html, body {
     padding: 0;
     width: 100%;
     min-height: 100%;
-    background: #f7eee8;
-    color: #4b342c;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: Georgia, serif;
+    background: #f8f3ee;
+    color: #3d3030;
 }
 
-body {
-    overflow-x: hidden;
-}
+/* ================= CURTAIN ================= */
 
-/* =========================
-   OPENING SCREEN
-========================= */
-
-#opening {
+#curtainScreen {
     position: fixed;
     inset: 0;
-    z-index: 100;
-    background:
-        radial-gradient(circle at center, #8f6254 0%, #492d2c 45%, #21191a 100%);
+    z-index: 9999;
+    background: #24191b;
     overflow: hidden;
 }
-
-/* Curtain pieces */
 
 .curtain {
     position: absolute;
     top: 0;
     width: 52%;
     height: 100%;
-    z-index: 3;
-    transition: transform 2.2s cubic-bezier(.77,0,.18,1);
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #3b2025 0px,
+            #63343b 18px,
+            #8b5660 34px,
+            #522a31 50px,
+            #321b20 70px
+        );
+    box-shadow: inset 0 0 50px rgba(0,0,0,.45);
+    transition: transform 2s cubic-bezier(.77,0,.18,1);
 }
 
-.curtain-left {
+.leftCurtain {
     left: 0;
     transform-origin: left center;
-    background:
-        repeating-linear-gradient(
-            90deg,
-            #5b292b 0px,
-            #8e4e4b 18px,
-            #542326 38px,
-            #a15e59 55px,
-            #59282a 78px
-        );
-    box-shadow: 12px 0 35px rgba(0,0,0,.45);
 }
 
-.curtain-right {
+.rightCurtain {
     right: 0;
     transform-origin: right center;
-    background:
-        repeating-linear-gradient(
-            90deg,
-            #59282a 0px,
-            #a15e59 18px,
-            #542326 38px,
-            #8e4e4b 55px,
-            #5b292b 78px
-        );
-    box-shadow: -12px 0 35px rgba(0,0,0,.45);
 }
 
-/* Curtain folds */
-
-.curtain::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,220,200,.18),
-            transparent 18%,
-            rgba(255,220,200,.12) 35%,
-            transparent 52%,
-            rgba(255,220,200,.14) 70%,
-            transparent
-        );
+#curtainScreen.open .leftCurtain {
+    transform: translateX(-105%);
 }
 
-/* Gold curtain trim */
+#curtainScreen.open .rightCurtain {
+    transform: translateX(105%);
+}
 
-.curtain-left::before,
-.curtain-right::before {
-    content: "";
+.goldLine {
     position: absolute;
     top: 0;
-    width: 8px;
+    left: 50%;
+    width: 3px;
     height: 100%;
-    background: linear-gradient(#e5bd7b,#fff0bf,#b88443,#f7d99b);
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #d7b77c,
+        #fff1c7,
+        #d7b77c,
+        transparent
+    );
+    z-index: 5;
+    transition: opacity 1s;
 }
 
-.curtain-left::before {
-    right: 0;
+#curtainScreen.open .goldLine {
+    opacity: 0;
 }
 
-.curtain-right::before {
-    left: 0;
-}
-
-/* When opened */
-
-#opening.open .curtain-left {
-    transform: translateX(-92%);
-}
-
-#opening.open .curtain-right {
-    transform: translateX(92%);
-}
-
-/* =========================
-   TAP SCREEN
-========================= */
-
-.tap-content {
+.openContent {
     position: absolute;
     z-index: 10;
-    inset: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+}
+
+.smallTitle {
+    letter-spacing: 6px;
+    font-size: 12px;
+    margin-bottom: 22px;
+}
+
+.initials {
+    font-size: 62px;
+    font-family: "Brush Script MT", cursive;
+    font-style: italic;
+    margin-bottom: 18px;
+}
+
+.tapText {
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.openButton {
+    border: 1px solid rgba(255,255,255,.75);
+    background: rgba(255,255,255,.12);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 40px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.openButton:hover {
+    background: rgba(255,255,255,.25);
+}
+
+/* ================= MAIN INVITATION ================= */
+
+#mainInvitation {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+#mainInvitation.visible {
+    opacity: 1;
+}
+
+.hero {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    pointer-events: none;
+    padding: 60px 20px;
+    background:
+        radial-gradient(circle at top, #fffdf9, transparent 55%),
+        #f8f3ee;
 }
 
-.tap-box {
-    pointer-events: auto;
-    color: #fff8ee;
-    text-shadow: 0 2px 15px rgba(0,0,0,.6);
+.heroInner {
+    max-width: 750px;
 }
 
-.small-title {
+.overline {
     letter-spacing: 5px;
-    font-size: 13px;
-    margin-bottom: 15px;
-}
-
-.initials {
-    font-family: 'Great Vibes', cursive;
-    font-size: 58px;
-    margin-bottom: 10px;
-}
-
-.tap-text {
-    font-size: 19px;
-    letter-spacing: 3px;
+    font-size: 11px;
+    color: #9a7b68;
     margin-bottom: 25px;
 }
 
-#openButton {
-    border: 1px solid rgba(255,235,200,.8);
-    background: rgba(255,245,225,.12);
-    color: #fff8ee;
-    padding: 14px 32px;
-    border-radius: 40px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    backdrop-filter: blur(4px);
-    transition: .3s;
+.inviteText {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #75645b;
 }
 
-#openButton:hover {
-    background: rgba(255,245,225,.25);
-    transform: scale(1.04);
+.names {
+    font-family: "Brush Script MT", cursive;
+    font-size: clamp(48px, 10vw, 90px);
+    font-style: italic;
+    font-weight: normal;
+    margin: 30px 0 10px;
 }
 
-/* =========================
-   INVITATION
-========================= */
-
-#invitation {
-    min-height: 100vh;
-    padding: 70px 22px;
-    text-align: center;
-    background:
-        radial-gradient(circle at top, #fffaf6, #f5e7df 70%);
-    opacity: 0;
-    transform: scale(.97);
-    transition: opacity 1.5s ease 1.2s,
-                transform 1.5s ease 1.2s;
-}
-
-#invitation.visible {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.eyebrow {
-    letter-spacing: 5px;
-    font-size: 12px;
-    color: #98715e;
-}
-
-.couple-names {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(48px, 13vw, 82px);
-    line-height: 1;
-    color: #765044;
-    margin: 25px 0;
-}
-
-.ampersand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 35px;
-    color: #b38a62;
-}
-
-.divider {
-    width: 100px;
-    height: 1px;
-    background: #c9a985;
-    margin: 25px auto;
-}
-
-.message {
-    max-width: 600px;
-    margin: 0 auto 45px;
-    font-size: 20px;
-    line-height: 1.6;
-}
-
-.details {
-    max-width: 650px;
-    margin: auto;
-    border: 1px solid #d8c1ad;
-    padding: 35px 20px;
-    background: rgba(255,255,255,.45);
-}
-
-.detail-title {
-    letter-spacing: 4px;
-    font-size: 13px;
-    color: #9b705b;
+.amp {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    color: #ad9270;
 }
 
 .date {
-    font-size: 32px;
-    margin: 12px 0;
-}
-
-.time {
-    font-size: 21px;
-    margin-bottom: 22px;
+    margin-top: 35px;
+    font-size: 18px;
+    letter-spacing: 4px;
 }
 
 .venue {
-    font-size: 25px;
+    margin-top: 12px;
+    font-size: 15px;
+    color: #76665d;
 }
 
-.location {
-    font-size: 17px;
-    margin-top: 5px;
-}
+/* ================= HEARTBEAT ================= */
 
-.footer-message {
-    margin-top: 50px;
-    font-family: 'Great Vibes', cursive;
-    font-size: 35px;
-    color: #765044;
+.heartArea {
+    margin: 55px auto 20px;
 }
 
 .heart {
-    color: #b88a78;
-    font-size: 28px;
-    margin: 20px;
+    font-size: 45px;
+    display: inline-block;
+    animation: heartbeat 1.2s infinite;
 }
 
-/* Mobile */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.25); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.18); }
+    60% { transform: scale(1); }
+}
+
+.heartbeatText {
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #9a7b68;
+}
+
+/* ================= COUNTDOWN ================= */
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 35px auto;
+}
+
+.timeBox {
+    min-width: 75px;
+    padding: 15px 10px;
+    border: 1px solid #d8c8ba;
+    background: rgba(255,255,255,.6);
+}
+
+.timeNumber {
+    font-size: 25px;
+}
+
+.timeLabel {
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    color: #92796a;
+}
+
+/* ================= SCRATCH REVEAL ================= */
+
+.scratchSection {
+    padding: 80px 20px;
+    text-align: center;
+    background: #efe5dc;
+}
+
+.sectionTitle {
+    letter-spacing: 4px;
+    font-size: 13px;
+    color: #917363;
+    margin-bottom: 25px;
+}
+
+.scratchBox {
+    position: relative;
+    width: min(90vw, 420px);
+    height: 230px;
+    margin: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fffaf5;
+    box-shadow: 0 15px 45px rgba(65,40,30,.12);
+}
+
+.revealMessage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.revealMessage h2 {
+    font-family: "Brush Script MT", cursive;
+    font-size: 38px;
+    font-weight: normal;
+    margin: 5px;
+}
+
+.revealMessage p {
+    color: #75645b;
+}
+
+#scratchCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+
+.scratchHint {
+    margin-top: 18px;
+    font-size: 12px;
+    color: #8b7669;
+    letter-spacing: 1px;
+}
+
+/* ================= DETAILS ================= */
+
+.details {
+    padding: 80px 20px;
+    text-align: center;
+    background: #faf7f3;
+}
+
+.detailCard {
+    max-width: 550px;
+    margin: auto;
+    padding: 35px;
+    border-top: 1px solid #d8c8ba;
+    border-bottom: 1px solid #d8c8ba;
+}
+
+.detailCard h2 {
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.detailCard p {
+    line-height: 1.8;
+    color: #75645b;
+}
+
+.footer {
+    padding: 45px 20px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #92796a;
+}
+
+/* MOBILE */
 
 @media(max-width:600px) {
 
@@ -295,20 +360,20 @@ body {
         font-size: 50px;
     }
 
-    .tap-text {
-        font-size: 17px;
+    .smallTitle {
+        letter-spacing: 4px;
     }
 
-    #openButton {
-        padding: 13px 28px;
-    }
-
-    .couple-names {
-        font-size: 55px;
+    .inviteText {
+        font-size: 16px;
     }
 
     .date {
-        font-size: 27px;
+        letter-spacing: 2px;
+    }
+
+    .timeBox {
+        min-width: 68px;
     }
 }
 </style>
@@ -316,118 +381,364 @@ body {
 
 <body>
 
-<!-- =========================
-     OPENING
-========================= -->
+<!-- ================= CURTAIN ================= -->
 
-<section id="opening">
+<div id="curtainScreen">
 
-    <div class="curtain curtain-left"></div>
-    <div class="curtain curtain-right"></div>
+    <div class="curtain leftCurtain"></div>
+    <div class="curtain rightCurtain"></div>
 
-    <div class="tap-content">
+    <div class="goldLine"></div>
 
-        <div class="tap-box">
+    <div class="openContent">
 
-            <div class="small-title">
-                A BEAUTIFUL BEGINNING AWAITS
-            </div>
-
-            <div class="initials">
-                S & T
-            </div>
-
-            <div class="tap-text">
-                TAP TO OPEN
-            </div>
-
-            <button id="openButton">
-                OPEN INVITATION ♡
-            </button>
-
+        <div class="smallTitle">
+            A BEAUTIFUL BEGINNING AWAITS
         </div>
 
+        <div class="initials">
+            S & T
+        </div>
+
+        <div class="tapText">
+            TAP TO OPEN
+        </div>
+
+        <button class="openButton" onclick="openInvitation()">
+            OPEN INVITATION ♡
+        </button>
+
     </div>
 
-</section>
+</div>
 
 
-<!-- =========================
-     INVITATION
-========================= -->
+<!-- ================= INVITATION ================= -->
 
-<section id="invitation">
+<div id="mainInvitation">
 
-    <div class="eyebrow">
-        TOGETHER WITH OUR FAMILIES
-    </div>
+<section class="hero">
 
-    <div class="divider"></div>
+<div class="heroInner">
 
-    <div class="message">
-        We invite you to join us as we celebrate
-        the beginning of a beautiful new chapter.
-    </div>
+<div class="overline">
+    TOGETHER WITH OUR FAMILIES
+</div>
 
-    <div class="couple-names">
-        Sukhwinderpal<br>
-        <span class="ampersand">&</span><br>
-        Tarveen Kaur
-    </div>
+<p class="inviteText">
+    We invite you to join us as we celebrate
+    the beginning of a beautiful new chapter.
+</p>
 
+<div class="names">
+    Sukhwinderpal
+</div>
+
+<div class="amp">
+    &
+</div>
+
+<div class="names">
+    Tarveen Kaur
+</div>
+
+<div class="heartArea">
     <div class="heart">♡</div>
-
-    <div class="divider"></div>
-
-    <div class="details">
-
-        <div class="detail-title">
-            THE ENGAGEMENT
-        </div>
-
-        <div class="date">
-            19 September 2026
-        </div>
-
-        <div class="time">
-            7:00 PM onwards
-        </div>
-
-        <div class="venue">
-            The Grace by Symphony
-        </div>
-
-        <div class="location">
-            Delhi
-        </div>
-
+    <div class="heartbeatText">
+        TWO HEARTS · ONE BEAUTIFUL BEGINNING
     </div>
+</div>
 
-    <div class="footer-message">
-        We can't wait to celebrate with you!
-    </div>
+<div class="date">
+    19 · SEPTEMBER · 2026
+</div>
+
+<div class="venue">
+    7:00 PM<br>
+    The Grace by Symphony, Delhi
+</div>
+
+
+<!-- COUNTDOWN -->
+
+<div class="countdown">
+
+<div class="timeBox">
+    <div class="timeNumber" id="days">00</div>
+    <div class="timeLabel">DAYS</div>
+</div>
+
+<div class="timeBox">
+    <div class="timeNumber" id="hours">00</div>
+    <div class="timeLabel">HOURS</div>
+</div>
+
+<div class="timeBox">
+    <div class="timeNumber" id="minutes">00</div>
+    <div class="timeLabel">MINUTES</div>
+</div>
+
+<div class="timeBox">
+    <div class="timeNumber" id="seconds">00</div>
+    <div class="timeLabel">SECONDS</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= SCRATCH ================= -->
+
+<section class="scratchSection">
+
+<div class="sectionTitle">
+    A LITTLE SURPRISE
+</div>
+
+<div class="scratchBox">
+
+<div class="revealMessage">
+
+    <div>✦</div>
+
+    <h2>
+        We can't wait<br>
+        to celebrate with you
+    </h2>
+
+    <p>
+        Scratch gently to reveal
+        a little message.
+    </p>
+
+</div>
+
+<canvas id="scratchCanvas"></canvas>
+
+</div>
+
+<div class="scratchHint">
+    ✦ SCRATCH THE VEIL TO REVEAL ✦
+</div>
 
 </section>
+
+
+<!-- ================= DETAILS ================= -->
+
+<section class="details">
+
+<div class="detailCard">
+
+<div class="sectionTitle">
+    SAVE THE DATE
+</div>
+
+<h2>
+    Sukhwinderpal & Tarveen
+</h2>
+
+<p>
+    19 September 2026<br>
+    7:00 PM
+</p>
+
+<p>
+    The Grace by Symphony<br>
+    Delhi
+</p>
+
+<p>
+    With love, joy and the blessings
+    of our families, we look forward
+    to celebrating this beautiful
+    beginning with you.
+</p>
+
+</div>
+
+</section>
+
+
+<div class="footer">
+    WITH LOVE · S & T
+</div>
+
+</div>
 
 
 <script>
 
-const opening = document.getElementById("opening");
-const button = document.getElementById("openButton");
-const invitation = document.getElementById("invitation");
+/* ================= OPEN CURTAIN ================= */
 
-button.addEventListener("click", function() {
+function openInvitation() {
 
-    opening.classList.add("open");
+    const curtain = document.getElementById("curtainScreen");
+    const invitation = document.getElementById("mainInvitation");
+
+    curtain.classList.add("open");
 
     setTimeout(function() {
         invitation.classList.add("visible");
-    }, 300);
+    }, 900);
 
     setTimeout(function() {
-        opening.style.display = "none";
-    }, 3500);
+        curtain.style.display = "none";
+    }, 2200);
+}
 
+
+/* ================= COUNTDOWN ================= */
+
+const targetDate =
+    new Date("September 19, 2026 19:00:00").getTime();
+
+function updateCountdown() {
+
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+
+        document.getElementById("days").innerHTML = "00";
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
+
+        return;
+    }
+
+    const days =
+        Math.floor(difference / (1000 * 60 * 60 * 24));
+
+    const hours =
+        Math.floor(
+            (difference % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
+
+    const minutes =
+        Math.floor(
+            (difference % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
+
+    const seconds =
+        Math.floor(
+            (difference % (1000 * 60))
+            / 1000
+        );
+
+    document.getElementById("days").innerHTML =
+        String(days).padStart(2,"0");
+
+    document.getElementById("hours").innerHTML =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").innerHTML =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").innerHTML =
+        String(seconds).padStart(2,"0");
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+
+/* ================= SCRATCH CARD ================= */
+
+const canvas = document.getElementById("scratchCanvas");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    ctx.globalCompositeOperation = "source-over";
+
+    const gradient = ctx.createLinearGradient(
+        0, 0,
+        canvas.width,
+        canvas.height
+    );
+
+    gradient.addColorStop(0, "#b99a7d");
+    gradient.addColorStop(.5, "#e0c9ae");
+    gradient.addColorStop(1, "#a8866d");
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "rgba(255,255,255,.25)";
+    ctx.font = "18px Georgia";
+    ctx.textAlign = "center";
+    ctx.fillText(
+        "SCRATCH TO REVEAL ♡",
+        canvas.width/2,
+        canvas.height/2
+    );
+}
+
+resizeCanvas();
+
+window.addEventListener("resize", resizeCanvas);
+
+let scratching = false;
+
+function scratch(e) {
+
+    if (!scratching) return;
+
+    const rect = canvas.getBoundingClientRect();
+
+    let x, y;
+
+    if (e.touches) {
+        x = e.touches[0].clientX - rect.left;
+        y = e.touches[0].clientY - rect.top;
+    } else {
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+    }
+
+    ctx.globalCompositeOperation = "destination-out";
+
+    ctx.beginPath();
+    ctx.arc(x, y, 28, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+canvas.addEventListener("mousedown", function() {
+    scratching = true;
+});
+
+canvas.addEventListener("mouseup", function() {
+    scratching = false;
+});
+
+canvas.addEventListener("mouseleave", function() {
+    scratching = false;
+});
+
+canvas.addEventListener("mousemove", scratch);
+
+canvas.addEventListener("touchstart", function(e) {
+    scratching = true;
+    scratch(e);
+});
+
+canvas.addEventListener("touchmove", function(e) {
+    e.preventDefault();
+    scratch(e);
+});
+
+canvas.addEventListener("touchend", function() {
+    scratching = false;
 });
 
 </script>
